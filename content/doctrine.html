@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>form. — doctrine set</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --deep:#05070B; --near-black:#0A0D12; --panel:#141821;
+  --soft-white:#F4F5F7; --muted:#A7ADB7; --dim:#6F7682;
+  --blue:#3D6BFF; --blue-2:#5AB6FF;
+  --strategy:#3DE87A; --creative:#E8A33D; --digital:#3D6BFF; --ai:#9B6BFF; --support:#A7ADB7; --experience:#E85C9B; --gold:#E8A33D;
+  --line:rgba(244,245,247,0.10); --line-2:rgba(244,245,247,0.18);
+  --surface:rgba(244,245,247,0.030);
+  --satoshi:"Satoshi",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --manrope:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --radius-md:14px; --radius-lg:22px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{background:var(--near-black);color:var(--soft-white);font-family:var(--manrope);line-height:1.72;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;}
+::selection{background:var(--blue);color:#fff;}
+a{color:var(--blue);text-decoration:none;}
+:focus-visible{outline:none;box-shadow:0 0 0 2px var(--near-black),0 0 0 4px var(--blue);border-radius:4px;}
+.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.ambient .glow{position:absolute;width:60vw;height:60vw;max-width:820px;max-height:820px;border-radius:50%;filter:blur(150px);opacity:.12;background:radial-gradient(circle,var(--blue),transparent 62%);top:-24vw;left:62%;transform:translateX(-50%);}
+.ambient .cool{opacity:.045;background:radial-gradient(circle,rgba(244,245,247,.6),transparent 60%);top:auto;bottom:-24vw;left:6%;width:50vw;height:50vw;}
+.ambient .grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 78% 50% at 50% 14%,#000,transparent 76%);-webkit-mask-image:radial-gradient(ellipse 78% 50% at 50% 14%,#000,transparent 76%);opacity:.5;}
+main{position:relative;z-index:1;}
+.wrap{max-width:840px;margin:0 auto;padding:0 32px;}
+.wm{font-family:var(--satoshi);font-weight:700;letter-spacing:-.012em;}
+.wm .p{color:var(--blue);}
+.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);}
+.eyebrow b{color:var(--blue);font-weight:500;}
+
+.mast{padding:34px 0 0;}
+.mast__bar{display:flex;align-items:center;justify-content:space-between;padding-bottom:22px;border-bottom:1px solid var(--line);}
+.mast__bar .wm{font-size:1.5rem;}
+.mast__bar .rt{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;text-align:right;line-height:1.7;}
+.mast__bar .rt b{color:var(--blue);font-weight:500;}
+.cover{padding:64px 0 44px;border-bottom:1px solid var(--line);}
+.cover .eyebrow{display:block;margin-bottom:22px;}
+.cover h1{font-family:var(--satoshi);font-weight:700;font-size:clamp(2.3rem,6vw,4rem);letter-spacing:-.035em;line-height:1.02;margin-bottom:22px;}
+.cover h1 .p{color:var(--blue);}
+.cover p{color:var(--muted);font-size:1.08rem;max-width:60ch;}
+
+/* index */
+.index{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:34px 0 8px;}
+.index a{display:flex;align-items:baseline;gap:14px;border:1px solid var(--line);border-radius:var(--radius-md);padding:18px 20px;text-decoration:none;transition:border-color .25s,background .25s;}
+.index a:hover{border-color:var(--line-2);background:var(--surface);}
+.index .n{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--blue);}
+.index .t{font-family:var(--satoshi);font-weight:500;font-size:1.1rem;color:var(--soft-white);letter-spacing:-.01em;}
+.index .d{display:block;color:var(--muted);font-size:.82rem;margin-top:2px;}
+
+/* doctrine section */
+.doc{padding:64px 0 12px;border-top:1px solid var(--line);}
+.doc__head{margin-bottom:34px;}
+.doc__ey{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+.doc__head h2{font-family:var(--satoshi);font-weight:700;font-size:clamp(2rem,5vw,3rem);letter-spacing:-.03em;line-height:1;}
+.doc__head .lede{color:var(--muted);font-size:1.05rem;margin-top:18px;max-width:60ch;}
+
+.principle{padding:30px 0;border-bottom:1px solid var(--line);}
+.principle h3{font-family:var(--satoshi);font-weight:500;font-size:1.25rem;letter-spacing:-.015em;margin-bottom:14px;}
+.principle p{color:var(--muted);font-size:1rem;margin-bottom:14px;}
+.principle p:last-child{margin-bottom:0;}
+.principle strong{color:var(--soft-white);font-weight:600;}
+
+.pull{margin:22px 0;padding:20px 24px;border-left:2px solid var(--blue);background:var(--surface);border-radius:0 var(--radius-md) var(--radius-md) 0;}
+.pull p{color:var(--soft-white);font-family:var(--satoshi);font-weight:500;font-size:1.12rem;letter-spacing:-.01em;line-height:1.4;margin:0;}
+.pull p .p{color:var(--blue);}
+
+/* use / avoid pair */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 4px;}
+.pair .col{border:1px solid var(--line);border-radius:var(--radius-md);padding:22px 22px;text-align:center;}
+.pair .col h4{font-family:var(--satoshi);font-weight:600;font-size:1rem;margin-bottom:14px;}
+.pair .col ul{list-style:none;display:flex;flex-direction:column;gap:9px;text-align:left;}
+.pair .col li{color:var(--muted);font-size:.92rem;padding-left:20px;position:relative;line-height:1.5;}
+.pair .use li::before{content:"—";position:absolute;left:0;color:var(--blue);}
+.pair .avoid li::before{content:"✕";position:absolute;left:0;color:#E5484D;font-weight:700;font-size:.8rem;}
+
+/* mono spec row */
+.spec{border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;margin:8px 0;}
+.spec .r{display:grid;grid-template-columns:160px 1fr;gap:18px;padding:16px 20px;align-items:baseline;border-bottom:1px solid var(--line);}
+.spec .r:last-child{border-bottom:none;}
+.spec .r .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);}
+.spec .r .v{color:var(--muted);font-size:.94rem;}
+.spec .r .v b{color:var(--soft-white);font-weight:600;}
+
+.final{padding:34px 0 8px;}
+.final .s{font-family:var(--satoshi);font-weight:500;font-size:1.1rem;color:var(--soft-white);letter-spacing:-.01em;text-align:center;border:1px solid var(--line);border-radius:var(--radius-md);padding:22px 26px;}
+.final .s .p{color:var(--blue);}
+
+.foot{padding:56px 0 72px;border-top:1px solid var(--line);margin-top:20px;}
+.foot .wm{font-size:1.5rem;margin-bottom:12px;}
+.foot .end{font-family:var(--satoshi);font-weight:700;font-size:1.5rem;letter-spacing:-.02em;color:var(--soft-white);margin:20px 0 10px;}
+.foot .end .p{color:var(--blue);}
+.foot p{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--dim);line-height:1.9;text-transform:uppercase;}
+
+@media(max-width:720px){.wrap{padding:0 20px;}.index,.pair,.spec .r{grid-template-columns:1fr;}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;}}
+</style>
+</head>
+<body>
+<div class="ambient" aria-hidden="true"><div class="glow"></div><div class="glow cool"></div><div class="grid"></div></div>
+
+<main class="wrap">
+
+  <header class="mast">
+    <div class="mast__bar">
+      <div class="wm">form<span class="p">.</span></div>
+      <div class="rt">doctrine set<br/><b>status: corrected</b> · aligned to brand system v01</div>
+    </div>
+  </header>
+
+  <section class="cover">
+    <span class="eyebrow">the standards beneath the system <b>//</b> four doctrines</span>
+    <h1>how form. behaves<span class="p">.</span></h1>
+    <p>Four doctrines that govern how the identity holds together in practice — the logo, the typography, the light, and the intelligence. Each is a standing standard. Corrected and aligned to Brand System v01: infrastructure blue is the master signal, signal green belongs to form. strategy alone, and the type system is Satoshi · Manrope · IBM Plex Mono.</p>
+    <nav class="index">
+      <a href="#logo"><span class="n">01</span><span><span class="t">logo doctrine</span><span class="d">contextual identity architecture</span></span></a>
+      <a href="#type"><span class="n">02</span><span><span class="t">typography doctrine</span><span class="d">cinematic intelligence type</span></span></a>
+      <a href="#light"><span class="n">03</span><span><span class="t">lighting doctrine</span><span class="d">emotional infrastructure</span></span></a>
+      <a href="#intelligence"><span class="n">04</span><span><span class="t">intelligence doctrine</span><span class="d">adaptive cinematic architecture</span></span></a>
+    </nav>
+  </section>
+
+  <!-- ============ 01 · LOGO ============ -->
+  <section class="doc" id="logo">
+    <div class="doc__head">
+      <div class="doc__ey">doctrine 01 &nbsp;/&nbsp; logo — contextual identity architecture</div>
+      <h2>restraint creates authority<span style="color:var(--blue)">.</span></h2>
+      <p class="lede">The form. logo is not merely a brand mark. It is an operational identity system — a foundational infrastructure layer inside a larger intelligence environment. It communicates intelligence, structure, clarity, confidence, restraint, and humanity inside intelligence. It should never feel loud, trendy, decorative, over-designed, or gimmicky. It should always feel calm, intentional, architectural, cinematic, and structurally refined.</p>
+    </div>
+
+    <div class="principle">
+      <h3>the wordmark is typography-first</h3>
+      <p>form. identity relies on spacing, typography, rhythm, compositional confidence, and silence — not decorative styling, visual aggression, or loud effects. The wordmark is set in <strong>Satoshi</strong>, always lowercase, always with the period. Confidence comes through simplicity. Clear space equals the height of the "f" on all sides. The mark must remain architecturally stable and legible at every size, from mobile to cinematic display. Never warp, stretch, outline, recolor, or recreate it — use approved assets only.</p>
+    </div>
+
+    <div class="principle">
+      <h3>the period doctrine</h3>
+      <p>The period in form. is foundational. It represents completion, precision, intentionality, decisiveness, operational finality, and structural confidence. It is not decoration — it is part of the intelligence system. It must remain intentional, proportionally balanced, spatially controlled, and visually stable.</p>
+      <p><strong>The period is the signal node.</strong> In the visual system it carries the <strong>infrastructure blue (#3D6BFF)</strong> — the mark that the system is live and the intelligence is active. Within a department lockup, the period takes that department's signal color. It should feel precise, restrained, and alive — it activates the system; it never dominates it. (Signal green is the living-intelligence signal reserved for form. strategy; it is never the color of the master mark.)</p>
+      <div class="pull"><p>the period says the idea has landed. the blue says the system is live<span class="p">.</span></p></div>
+    </div>
+
+    <div class="principle">
+      <h3>the three logo modes</h3>
+      <p>The identity adapts to emotional, environmental, operational, and institutional context while remaining coherent across all states. There are three modes — <strong>all lowercase</strong>.</p>
+      <div class="spec">
+        <div class="r"><span class="k">core</span><span class="v"><b>Canonical default.</b> White wordmark, blue period, dark ground. Product, UI, web, docs, operational surfaces. Calm, balanced, infrastructural.</span></div>
+        <div class="r"><span class="k">editorial</span><span class="v"><b>Cinematic / creative.</b> Lighter optical weight, more breathing room, set inside the Living Motion &amp; horizon atmosphere. Campaigns, covers, storytelling, brand films.</span></div>
+        <div class="r"><span class="k">authority</span><span class="v"><b>Institutional / declarative.</b> Presence through scale, contrast, and composition — never capitals. Enterprise proposals, board decks, launch moments. Authority through restraint, not intimidation.</span></div>
+      </div>
+    </div>
+
+    <div class="principle">
+      <h3>color &amp; motion</h3>
+      <p>Primary logo usage: stark white, almost-black, and infrastructure blue. Avoid random colorization, decorative gradients, and trend-based color treatments. Logo motion stays extremely restrained — subtle opacity breathing, gentle luminance shifts, cinematic fades. Never spin, bounce, flash, or distort. The logo should feel alive, not animated — embedded cinematically into environments, never pasted on top.</p>
+      <div class="pair">
+        <div class="col use"><h4>do</h4><ul>
+          <li>Keep it typographic, spacious, architecturally balanced.</li>
+          <li>Preserve the period and the clear space (height of "f").</li>
+          <li>Let the period carry blue — or the department's signal color in a lockup.</li>
+          <li>Embed it into dark cinematic environments.</li>
+        </ul></div>
+        <div class="col avoid"><h4>avoid</h4><ul>
+          <li>Uppercase "FORM." or any distorted, outlined, shadowed mark.</li>
+          <li>Signal green on the master mark, or green outside strategy.</li>
+          <li>Clip art, emblems, random symbols, or gradients inside the mark.</li>
+          <li>Oversized nodes, excessive glow, or gimmick animation.</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <div class="final">
+      <div class="s">a calm operational intelligence mark embedded inside a cinematic, future-aware system — designed to preserve humanity inside intelligence<span class="p">.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 02 · TYPOGRAPHY ============ -->
+  <section class="doc" id="type">
+    <div class="doc__head">
+      <div class="doc__ey">doctrine 02 &nbsp;/&nbsp; typography — cinematic intelligence type</div>
+      <h2>restraint creates luxury<span style="color:var(--blue)">.</span></h2>
+      <p class="lede">Typography inside form. is not decoration — it is environmental architecture. It defines emotional pacing, operational clarity, cinematic hierarchy, and spatial rhythm. Hierarchy is created through spacing, scale, luminance, rhythm, and negative space — not heavy weights, oversized type, or aggressive contrast. Typography should feel deeply confident, never desperate for attention.</p>
+    </div>
+
+    <div class="principle">
+      <h3>the type system — three faces, strict roles</h3>
+      <p>form. runs on exactly three typefaces. Canela and Commuter Sans are retired; do not use them.</p>
+      <div class="spec">
+        <div class="r"><span class="k">Satoshi</span><span class="v"><b>Display, headlines, the wordmark.</b> The big statements. Modern, clean, architecturally balanced. Weights to 700 for display and the wordmark.</span></div>
+        <div class="r"><span class="k">Manrope</span><span class="v"><b>Body, sub-headings, lede, UI text.</b> Longer reading and interface. Calm, highly legible, human. Weights 400–600.</span></div>
+        <div class="r"><span class="k">IBM Plex Mono</span><span class="v"><b>Metadata, eyebrows, section codes, labels, timestamps.</b> Infrastructural, subtle, precise. Weights 400–500.</span></div>
+      </div>
+    </div>
+
+    <div class="principle">
+      <h3>weight doctrine</h3>
+      <p>Body typography stays restrained — 400 to 500, with 600 for controlled emphasis. Display and the wordmark carry a confident Satoshi weight up to 700; that is the one place strength is allowed. Beyond display, avoid heavy weights, brutalist contrast, and compressed type. Typography must preserve softness inside precision — never typographically aggressive, gamer-oriented, or hyper-futuristic.</p>
+    </div>
+
+    <div class="principle">
+      <h3>casing</h3>
+      <p>Lowercase is the default — headers, sub-headers, navigation, section titles, ecosystem labels, product names, and footer categories are lowercase. It softens arrogance, increases humanity, and improves cinematic pacing. <strong>Uppercase belongs to metadata only</strong> — micro-labels, system indicators, technical indexing — always in IBM Plex Mono, always with increased tracking, never dominating the page.</p>
+    </div>
+
+    <div class="principle">
+      <h3>spacing, tracking &amp; color</h3>
+      <p>Typography should breathe: generous vertical spacing, intentional line breaks, cinematic pacing, balanced negative space. Reading should feel effortless. Metadata and uppercase labels benefit from slightly expanded tracking. Primary text is <strong>soft white, never pure white</strong>; secondary text is muted gray. Accent text uses <strong>infrastructure blue</strong>; signal green is used only inside form. strategy. Not all type appears at 100% brightness — controlled opacity creates cinematic depth. Default alignment is left; center only for intentional emotional or hero moments.</p>
+      <div class="pull"><p>a calm cinematic intelligence language — built to preserve emotional humanity inside advanced operational systems<span class="p">.</span></p></div>
+    </div>
+  </section>
+
+  <!-- ============ 03 · LIGHTING ============ -->
+  <section class="doc" id="light">
+    <div class="doc__head">
+      <div class="doc__ey">doctrine 03 &nbsp;/&nbsp; lighting — emotional infrastructure</div>
+      <h2>light should feel lived inside<span style="color:var(--blue)">.</span></h2>
+      <p class="lede">form. lighting is not decoration — it is emotional infrastructure. It defines atmosphere, dimensionality, emotional tone, and cinematic realism. It should never feel harsh, synthetic, overexposed, radioactive, or hyper-neon. It should feel cinematic, atmospheric, physically believable, restrained, and immersive — light that behaves like real environmental light interacting with cinematic space, lived inside rather than applied afterward.</p>
+    </div>
+
+    <div class="principle">
+      <h3>darkness is foundational</h3>
+      <p>Luxury lighting relies on restraint. form. environments depend on black, near-black, and indigo shadow — atmospheric void space and cinematic contrast. Sophistication comes from controlled illumination, not maximum brightness. Without darkness, light loses meaning. The system must respect shadow architecture.</p>
+    </div>
+
+    <div class="principle">
+      <h3>one counter-light per frame</h3>
+      <p>form. is a cool base with warm accents. Every composition carries exactly <strong>one counter-light — warm gold, or cool gray-white — never both in the same frame</strong>. When gold is present it is the warm counter-light; when it is absent, the counter-light is the cool gray-white glow. The infrastructure blue accent coexists with either. This is the discipline that keeps the atmosphere premium rather than muddy.</p>
+      <div class="pull"><p>warm gold or cool gray-white. one light holds the frame — never a fight between two<span class="p">.</span></p></div>
+    </div>
+
+    <div class="principle">
+      <h3>glow, bloom &amp; volumetrics</h3>
+      <p>Glow is emotional light diffusion — soft, volumetric, restrained; never radioactive or cheap neon. Bloom behaves cinematically — gradual, subtle, physically believable; avoid blown-out highlights and aggressive lens effects. Volumetric light (fog-lit gradients, atmospheric haze, layered diffusion, light shafts) creates the sense that light exists inside space. Edges rarely sit fully hard — softened diffusion and gradual luminance falloff read as realism and luxury.</p>
+    </div>
+
+    <div class="principle">
+      <h3>signal light &amp; the living system</h3>
+      <p>The signal light of active intelligence is the <strong>infrastructure blue</strong> — used surgically to guide attention, never to overwhelm. The <strong>Living Intelligence / Motion System</strong> is where light becomes cognition: gold-and-blue mesh, orbital, and horizon energy against the dark, always paired, gold never mixed with the cool gray in the same frame. Department signal lights appear only in their own context — <strong>signal green for strategy</strong>, violet for ai, cosmic rose for experience, gold for creative &amp; marketing. UI light should feel aerospace-grade, not gamer-tech: no glowing everything equally, no arcade HUD, no pulsing neon.</p>
+      <div class="final" style="padding-top:24px">
+        <div class="s">emotionally intelligent cinematic light diffusing naturally through a living operational atmosphere<span class="p">.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 · INTELLIGENCE ============ -->
+  <section class="doc" id="intelligence">
+    <div class="doc__head">
+      <div class="doc__ey">doctrine 04 &nbsp;/&nbsp; intelligence — adaptive cinematic architecture</div>
+      <h2>humanity remains central<span style="color:var(--blue)">.</span></h2>
+      <p class="lede">form. intelligence systems are not built to replace humanity — they are built to preserve, amplify, organize, and support it inside increasingly complex systems. Intelligence should never feel cold, authoritarian, robotic, surveillance-oriented, or dehumanizing. It should feel emotionally aware, deeply supportive, structurally calm, and human-centered. Intelligence should increase human clarity, not reduce human humanity.</p>
+    </div>
+
+    <div class="principle">
+      <h3>intelligence as environment</h3>
+      <p>form. intelligence should feel environmental, not mechanical — aware, responsive, adaptive, calm, and synchronized without feeling invasive or hyperactive. It behaves like an intelligent atmosphere, not a machine demanding attention. Operational intelligence exists to simplify complexity, preserve clarity, reduce friction, and organize systems coherently — and the best of it feels effortless.</p>
+    </div>
+
+    <div class="principle">
+      <h3>the signal doctrine</h3>
+      <p>Signals represent active awareness. They guide attention, communicate intelligence, and preserve hierarchy — intentional, precise, restrained, and meaningful. Avoid signal overload, notification chaos, and aggressive activation. The signal of active awareness is the <strong>infrastructure blue</strong>; the living-intelligence signal — cognition, adaptation, pattern disruption — is <strong>signal green, and it belongs to form. strategy</strong>. Signals should whisper awareness, never scream urgency.</p>
+    </div>
+
+    <div class="principle">
+      <h3>mesh, orbital &amp; the living layer</h3>
+      <p>The <strong>Living Intelligence System</strong> expresses cognition becoming emotionally aware. <strong>Mesh</strong> systems represent connected intelligence relationships — communication, awareness, living operational topology — elegant, restrained, mathematically graceful, never chaotic node density. <strong>Orbitals</strong> represent synchronized convergence — alignment, coordination, gravitational calm — never arcade-like. The adaptive cognition layer carries the gold-and-blue energy of the Living Motion System; violet reads as the intelligence of form. ai. Adaptation should feel smooth, restrained, and context-aware, preserving compositional calm.</p>
+      <div class="pull"><p>the system should feel deeply intelligent — without needing to prove it<span class="p">.</span></p></div>
+    </div>
+
+    <div class="principle">
+      <h3>ethical &amp; invisible intelligence</h3>
+      <p>form. intelligence must preserve human dignity. It should never manipulate psychologically, exploit attention, encourage addiction, or create emotional exhaustion. It should support focus, reduce overwhelm, preserve intentionality, and create calm. The most advanced form. intelligence feels invisible — the user experiences clarity, flow, and organization without constantly noticing the intelligence layer itself. Sophistication comes from orchestration, not excess.</p>
+      <div class="final" style="padding-top:24px">
+        <div class="s">a living cinematic operational intelligence environment — designed to amplify human clarity, preserve emotional humanity, and organize complexity with calm architectural precision<span class="p">.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wm">form<span class="p">.</span></div>
+    <div class="end">vision needs structure.<br/>the future needs form<span class="p">.</span></div>
+    <p>doctrine set · logo · typography · lighting · intelligence<br/>corrected &amp; aligned to brand system v01 · formintel.co · © 2026 form.</p>
+  </footer>
+
+</main>
+</body>
+</html>

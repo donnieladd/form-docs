@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>form. — brand system · volume 01 · identity standard</title>
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   form. DESIGN TOKENS — single source of truth
+   ============================================================ */
+:root{
+  /* base palette */
+  --deep:#05070B;
+  --near-black:#0A0D12;
+  --panel:#141821;
+  --soft-white:#F4F5F7;
+  --muted:#A7ADB7;
+  --dim:#6F7682;
+
+  /* master accent — infrastructure blue */
+  --blue:#3D6BFF;
+  --blue-2:#5AB6FF;
+  --blue-3:#7DA5FF;
+
+  /* department signals */
+  --strategy:#3DE87A;   /* refined signal green — living intelligence */
+  --creative:#E8A33D;   /* gold / amber */
+  --digital:#3D6BFF;    /* infrastructure blue */
+  --ai:#9B6BFF;         /* violet */
+  --support:#A7ADB7;    /* muted gray */
+  --experience:#E85C9B; /* cosmic rose */
+
+  /* atmosphere */
+  --gold:#E8B04B;
+  --gradient-cta:linear-gradient(90deg,#3D6BFF,#7A3DFF);
+
+  /* semantic surfaces */
+  --line:rgba(244,245,247,0.10);
+  --line-2:rgba(244,245,247,0.18);
+  --surface:rgba(244,245,247,0.030);
+  --surface-2:rgba(244,245,247,0.055);
+
+  /* type */
+  --satoshi:"Satoshi",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --manrope:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --radius-sm:8px; --radius-md:14px; --radius-lg:22px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --maxw:1160px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  background:var(--near-black); color:var(--soft-white);
+  font-family:var(--manrope); line-height:1.6; font-weight:400;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+::selection{background:var(--blue);color:#fff;}
+:focus-visible{outline:none;box-shadow:0 0 0 2px var(--near-black),0 0 0 4px var(--blue);border-radius:4px;}
+
+/* display / headline = Satoshi */
+h1,h2,h3,.satoshi{font-family:var(--satoshi);}
+.mono{font-family:var(--mono);}
+
+/* ambient */
+.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.ambient .glow{position:absolute;width:60vw;height:60vw;max-width:820px;max-height:820px;border-radius:50%;filter:blur(150px);opacity:.13;background:radial-gradient(circle,var(--blue),transparent 62%);top:-22vw;left:60%;transform:translateX(-50%);}
+.ambient .glow.cool{opacity:.05;background:radial-gradient(circle,rgba(244,245,247,.6),transparent 60%);top:auto;bottom:-24vw;left:8%;width:50vw;height:50vw;}
+.ambient .grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 78% 52% at 50% 16%,#000,transparent 76%);-webkit-mask-image:radial-gradient(ellipse 78% 52% at 50% 16%,#000,transparent 76%);opacity:.5;}
+main{position:relative;z-index:1;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+
+/* wordmark */
+.wm{font-family:var(--satoshi);font-weight:700;letter-spacing:-.012em;}
+.wm .p{color:var(--blue);}
+
+/* metadata / eyebrow */
+.eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);}
+.eyebrow b{color:var(--blue);font-weight:500;}
+
+/* ============================================================ */
+/* MASTHEAD */
+.masthead{padding:34px 0 0;}
+.masthead__bar{display:flex;align-items:center;justify-content:space-between;padding-bottom:22px;border-bottom:1px solid var(--line);}
+.masthead__bar .wm{font-size:1.5rem;}
+.masthead__bar .rt{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;color:var(--dim);text-transform:uppercase;text-align:right;line-height:1.7;}
+.masthead__bar .rt b{color:var(--blue);font-weight:500;}
+.cover{padding:70px 0 60px;border-bottom:1px solid var(--line);position:relative;}
+.cover .eyebrow{margin-bottom:24px;display:block;}
+.cover h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:700;letter-spacing:-.04em;line-height:1;margin-bottom:26px;}
+.cover h1 .p{color:var(--blue);}
+.cover p{color:var(--muted);max-width:60ch;font-size:1.1rem;}
+.cover .lockline{margin-top:30px;font-family:var(--mono);font-size:.72rem;color:var(--dim);letter-spacing:.05em;line-height:1.9;}
+.cover .lockline b{color:var(--blue);font-weight:500;}
+
+/* section scaffold */
+section.blk{padding:70px 0;border-bottom:1px solid var(--line);}
+.blk__head{display:flex;align-items:baseline;gap:18px;margin-bottom:38px;flex-wrap:wrap;}
+.blk__head .num{font-family:var(--mono);font-size:.72rem;color:var(--blue);letter-spacing:.16em;}
+.blk__head h2{font-family:var(--satoshi);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.3rem);letter-spacing:-.025em;}
+.blk__head .tag{margin-left:auto;font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);border:1px solid var(--line-2);border-radius:999px;padding:5px 12px;}
+.lead{font-size:1.06rem;color:var(--muted);max-width:64ch;margin-bottom:8px;}
+
+/* grids */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);padding:26px 24px;text-align:center;}
+.card h4{font-family:var(--satoshi);font-weight:500;font-size:1.12rem;letter-spacing:-.01em;margin-bottom:8px;}
+.card p{color:var(--muted);font-size:.94rem;}
+.card .code{font-family:var(--manrope);font-size:.98rem;font-weight:600;letter-spacing:0;color:var(--soft-white);text-transform:none;margin-bottom:10px;display:block;}
+
+/* essence chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;}
+.chip{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft-white);background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:9px 16px;}
+
+/* posture statements */
+.posture{display:flex;flex-direction:column;gap:6px;}
+.posture .s{font-family:var(--satoshi);font-weight:700;font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:-.03em;}
+.posture .s .p{color:var(--blue);}
+.posture .s.dim{color:var(--dim);}
+
+/* ============================================================ */
+/* LOGO SYSTEM */
+.logo-hero{background:linear-gradient(160deg,var(--panel),var(--near-black));border:1px solid var(--line-2);border-radius:var(--radius-lg);padding:64px 40px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.logo-hero::after{content:"";position:absolute;right:-25%;top:-45%;width:70%;height:190%;background:radial-gradient(circle at center,rgba(61,107,255,.18),transparent 60%);pointer-events:none;}
+.logo-hero .wm{font-size:clamp(4rem,12vw,7rem);position:relative;z-index:1;}
+.clearspace{position:relative;padding:40px;border:1px dashed var(--line-2);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;background:var(--surface);}
+.clearspace .wm{font-size:3rem;}
+.clearspace .note{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;color:var(--dim);}
+.swatchrow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.logo-var{border:1px solid var(--line);border-radius:var(--radius-md);padding:34px 18px;text-align:center;}
+.logo-var .wm{font-size:2rem;}
+.logo-var.onlight{background:var(--soft-white);}
+.logo-var.onlight .wm{color:var(--near-black);}
+.logo-var.mono .wm .p{color:var(--soft-white);}
+.logo-var .lab{margin-top:18px;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);}
+.logo-var.onlight .lab{color:var(--dim);}
+
+/* modes */
+.mode{border:1px solid var(--line);border-radius:var(--radius-md);padding:28px 26px;background:var(--surface);text-align:center;}
+.mode .wm{font-size:1.9rem;margin-bottom:16px;}
+.mode.editorial .wm{font-weight:400;letter-spacing:-.02em;}
+.mode.authority .wm{font-size:2.4rem;}
+.mode .name{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--blue);text-transform:uppercase;margin-bottom:8px;}
+.mode p{color:var(--muted);font-size:.9rem;}
+
+/* division lockups */
+.lockups{display:flex;flex-direction:column;gap:12px;}
+.lockup{display:grid;grid-template-columns:210px 1fr;gap:0;align-items:stretch;border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
+.lockup__h{display:flex;align-items:center;gap:16px;padding:22px 26px;background:var(--surface);border-right:1px solid var(--line);}
+.lockup__h .wm{font-size:1.7rem;}
+.lockup__h .div{font-family:var(--manrope);font-weight:500;font-size:1.05rem;}
+.lockup__meta{padding:22px 26px;display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.lockup__meta .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);}
+.lockup__meta .v{color:var(--muted);font-size:.92rem;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+
+/* color swatches */
+.palette{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;}
+.sw{border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;}
+.sw .chip{height:88px;display:block;border-radius:0;border:none;}
+.sw .meta{padding:12px 12px 14px;text-align:center;}
+.sw .meta .n{font-family:var(--satoshi);font-weight:500;font-size:.86rem;}
+.sw .meta .h{font-family:var(--mono);font-size:.66rem;color:var(--dim);letter-spacing:.06em;margin-top:2px;}
+.deptrow{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;}
+.dept{border:1px solid var(--line);border-radius:var(--radius-md);padding:20px 16px;text-align:center;}
+.dept .bar{height:5px;border-radius:999px;margin-bottom:14px;}
+.dept .n{font-family:var(--satoshi);font-weight:500;font-size:.95rem;}
+.dept .h{font-family:var(--mono);font-size:.62rem;color:var(--dim);letter-spacing:.06em;margin-top:4px;}
+.dept .role{color:var(--muted);font-size:.8rem;margin-top:8px;line-height:1.5;}
+.gradbar{height:56px;border-radius:var(--radius-md);border:1px solid var(--line);}
+
+/* type specimens */
+.typ{display:grid;grid-template-columns:150px 1fr;gap:32px;align-items:start;border:1px solid var(--line);border-radius:var(--radius-md);padding:28px;background:var(--surface);}
+.typ+.typ{margin-top:14px;}
+.typ .side .aa{font-size:4rem;line-height:1;font-weight:700;letter-spacing:-.03em;}
+.typ .side .nm{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--blue);text-transform:uppercase;margin-top:12px;}
+.typ .side .rl{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--dim);margin-top:6px;line-height:1.7;}
+.typ .b .h{font-weight:700;letter-spacing:-.03em;line-height:1.05;font-size:clamp(1.7rem,3.6vw,2.5rem);}
+.typ .b .h .p{color:var(--blue);}
+.typ .b .sub{font-size:1.15rem;color:var(--soft-white);font-weight:500;margin-top:14px;}
+.typ .b .bd{color:var(--muted);font-size:1rem;margin-top:14px;max-width:60ch;}
+.satoshi-face{font-family:var(--satoshi);}
+.manrope-face{font-family:var(--manrope);}
+.mono-face{font-family:var(--mono);}
+
+.scale{display:flex;flex-direction:column;gap:14px;}
+.scale .r{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:baseline;border-top:1px solid var(--line);padding-top:14px;}
+.scale .r .k{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;}
+
+/* do / dont */
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.dd .col{border:1px solid var(--line);border-radius:var(--radius-md);padding:26px 24px;}
+.dd .col h4{font-family:var(--satoshi);font-weight:600;font-size:1rem;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.dd ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+.dd li{color:var(--muted);font-size:.92rem;padding-left:22px;position:relative;line-height:1.5;}
+.dd .do li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:700;}
+.dd .dont li::before{content:"✕";position:absolute;left:0;color:#E5484D;font-weight:700;}
+
+/* continuum */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;}
+.stage{border:1px solid var(--line);border-radius:var(--radius-md);padding:22px 18px;position:relative;text-align:center;}
+.stage .n{font-family:var(--mono);font-size:.66rem;color:var(--blue);letter-spacing:.12em;margin-bottom:12px;}
+.stage h4{font-family:var(--satoshi);font-weight:500;font-size:1.05rem;margin-bottom:8px;}
+.stage p{color:var(--muted);font-size:.84rem;line-height:1.5;}
+
+/* labs */
+.shelf{margin-top:10px;}
+.shelf .lbl{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:20px 0 12px;}
+.prod{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 18px;background:var(--surface);margin-bottom:8px;}
+.prod .l{display:flex;flex-direction:column;gap:2px;}
+.prod .l .nm{font-family:var(--manrope);font-weight:600;font-size:.98rem;}
+.prod .l .nm .by{color:var(--dim);font-weight:400;}
+.prod .l .ds{color:var(--muted);font-size:.82rem;}
+.prod .st{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid var(--line-2);color:var(--muted);}
+.prod .st.live{color:var(--blue);border-color:rgba(61,107,255,.45);}
+.prod .st.soon{color:var(--muted);border-color:var(--line-2);}
+
+/* voice */
+.tag{font-family:var(--satoshi);font-weight:700;letter-spacing:-.03em;font-size:clamp(1.5rem,3.4vw,2.1rem);line-height:1.15;}
+.tag .p{color:var(--blue);}
+.voice-words{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+
+/* signature living-motion moment */
+.illum{position:relative;border-radius:var(--radius-lg);overflow:hidden;padding:44px 40px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;gap:26px;background:linear-gradient(120deg,#2E56E6,#6E4BFF,#3D6BFF);background-size:220% 220%;animation:illumShift 16s ease-in-out infinite;}
+@keyframes illumShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.illum::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.055) 0 2px,transparent 2px 24px);pointer-events:none;}
+.illum .top{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1;}
+.illum .wm{font-size:1.5rem;color:#fff;}
+.illum .wm .p{color:#fff;}
+.illum .idx{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.4);border-radius:8px;padding:8px 14px;}
+.illum h3{position:relative;z-index:1;font-family:var(--satoshi);font-weight:700;font-size:clamp(1.8rem,4vw,2.9rem);letter-spacing:-.03em;color:#fff;margin-bottom:10px;}
+.illum .sub{position:relative;z-index:1;color:rgba(255,255,255,.85);font-size:1rem;max-width:44ch;}
+.illum .ticker{position:relative;z-index:1;font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;color:rgba(255,255,255,.75);text-transform:uppercase;display:flex;justify-content:space-between;gap:12px;}
+@media (prefers-reduced-motion:reduce){.illum{animation:none;}}
+
+/* footer */
+.foot{padding:56px 0 70px;}
+.foot .top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:40px;}
+.foot .wm{font-size:1.6rem;margin-bottom:12px;}
+.foot .tagline{font-family:var(--manrope);font-size:.9rem;letter-spacing:0;color:var(--muted);line-height:1.8;}
+.foot .col h5{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+.foot .col a,.foot .col span{display:block;color:var(--muted);font-size:.9rem;line-height:2;text-decoration:none;}
+.foot .col a:hover{color:var(--soft-white);}
+.foot .bottom{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;}
+
+@media(max-width:820px){
+  .wrap{padding:0 20px;}
+  .g2,.g3,.g4,.palette,.deptrow,.swatchrow,.flow{grid-template-columns:1fr;}
+  .g4,.palette,.deptrow{grid-template-columns:1fr 1fr;}
+  .lockup{grid-template-columns:1fr;}
+  .lockup__h{border-right:none;border-bottom:1px solid var(--line);}
+  .typ{grid-template-columns:1fr;gap:18px;}
+  .typ .side{display:flex;align-items:baseline;gap:16px;}
+  .typ .side .aa{font-size:2.6rem;}.typ .side .nm{margin-top:0;}
+  .dd,.scale .r{grid-template-columns:1fr;}
+  .swatchrow{grid-template-columns:1fr 1fr;}
+}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;}}
+</style>
+</head>
+<body>
+<div class="ambient" aria-hidden="true">
+  <div class="glow"></div><div class="glow cool"></div><div class="grid"></div>
+</div>
+
+<main class="wrap">
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="masthead__bar">
+      <div class="wm">form<span class="p">.</span></div>
+      <div class="rt">brand system · volume 01<br/><b>status: locked</b> · authority: canonical</div>
+    </div>
+  </header>
+
+  <section class="cover">
+    <span class="eyebrow">the identity standard <b>//</b> formintel.co</span>
+    <h1>the systems behind movement<span class="p">.</span></h1>
+    <p>This document defines the official and only approved visual and verbal identity for form. Everything future work produces must preserve, extend, and refine this system.</p>
+    <div class="lockline">
+      one company · six departments · one division · one partnership model<br/>
+      <b>preserve. extend. refine. never drift.</b>
+    </div>
+  </section>
+
+  <!-- 01 ESSENCE -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">01</span><h2>brand essence</h2><span class="tag">who form. is</span></div>
+    <p class="lead">form. is an AI-augmented operational intelligence company. It builds the systems behind execution — uniting strategy, technology, creative infrastructure, and human intelligence so organizations can scale impact. Not a version of the brand. The brand.</p>
+    <div class="chips" style="margin-top:26px">
+      <span class="chip">operational</span><span class="chip">intelligent</span><span class="chip">clear</span>
+      <span class="chip">premium</span><span class="chip">restrained</span><span class="chip">human</span>
+      <span class="chip">architectural</span><span class="chip">cinematic</span><span class="chip">immersive</span>
+      <span class="chip">quietly powerful</span>
+    </div>
+  </section>
+
+  <!-- 02 POSITIONING + POSTURE -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">02</span><h2>positioning &amp; posture</h2><span class="tag">what form. is / is not</span></div>
+    <div class="g2">
+      <div class="card">
+        <span class="code">form. is</span>
+        <p style="color:var(--soft-white)">A system builder. A clarity engine. A premium execution partner. Institutional intelligence with disruptive cognition. A creative rebel with enterprise authority. Operational futurism with cultural intelligence. Movement-grade operational intelligence.</p>
+      </div>
+      <div class="card">
+        <span class="code" style="color:var(--muted)">form. is not</span>
+        <p>A generic agency. A traditional consultancy. An AI-hype machine. A church-services vendor. A design studio. Trend-chasing, gimmicky, loud without purpose, or template-driven. form. may contain elements of these — none are large enough to define it.</p>
+      </div>
+    </div>
+    <div class="posture" style="margin-top:32px">
+      <div class="s">form. does not follow<span class="p">.</span></div>
+      <div class="s">form. leads<span class="p">.</span></div>
+      <div class="s">form. sets direction<span class="p">.</span></div>
+      <div class="s dim" style="font-size:1.1rem;font-weight:500;font-family:var(--manrope);letter-spacing:0;margin-top:12px">We build what others eventually recognize as the standard. We evolve intentionally, never reactively.</div>
+    </div>
+  </section>
+
+  <!-- 03 NAME + PERIOD -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">03</span><h2>the name &amp; the period</h2><span class="tag">meaning</span></div>
+    <div class="g2">
+      <div>
+        <p class="lead">To <em>form</em> something is to give it shape — to bring structure to what was unstructured, and make the conceptual operational, visible, and executable. form. is the act of turning potential into architecture.</p>
+        <p class="lead" style="margin-top:16px">form. gives shape to complexity, structure to vision, intelligence to operations, rhythm to execution, and systems to movement.</p>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="wm" style="font-size:3.4rem;margin-bottom:18px">form<span class="p">.</span></div>
+        <span class="code">the period doctrine</span>
+        <p>The period is not decoration — it is part of the intelligence system. It signals completion, precision, intentionality, and operational finality. It says the idea has landed. It is always present, always the infrastructure blue, always proportionally balanced.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 LOGO SYSTEM -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">04</span><h2>logo system</h2><span class="tag">always lowercase · always the period</span></div>
+    <p class="lead">The wordmark is set in <b style="color:var(--soft-white)">Satoshi</b>. It is typography-first — restraint creates authority. Never alter, warp, stretch, outline, recolor, or recreate the mark. Use approved assets only.</p>
+
+    <div class="logo-hero" style="margin:28px 0"><div class="wm">form<span class="p">.</span></div></div>
+
+    <div class="g2" style="margin-bottom:16px">
+      <div class="clearspace">
+        <div class="wm">form<span class="p">.</span></div>
+        <div class="note">clear space = the height of the “f” on all sides</div>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+        <span class="code">construction rules</span>
+        <p>Lowercase always. Period always. Dominant weight 700 for the wordmark; never distort proportion. Maintain clear space equal to the height of the “f.” Keep the mark architecturally stable and legible at every size — mobile to cinematic display.</p>
+      </div>
+    </div>
+
+    <div class="swatchrow">
+      <div class="logo-var"><div class="wm">form<span class="p">.</span></div><div class="lab">primary · white on dark</div></div>
+      <div class="logo-var"><div class="wm" style="color:var(--blue)">form<span class="p" style="color:var(--blue)">.</span></div><div class="lab">accent · full blue</div></div>
+      <div class="logo-var onlight"><div class="wm">form<span class="p">.</span></div><div class="lab">black on light</div></div>
+      <div class="logo-var mono"><div class="wm">form<span class="p">.</span></div><div class="lab">monochrome white</div></div>
+    </div>
+
+    <h3 style="font-size:1.15rem;margin:40px 0 16px;font-weight:500;letter-spacing:-.01em">the three logo modes <span style="color:var(--dim);font-family:var(--mono);font-size:.7rem;letter-spacing:.1em">— all lowercase</span></h3>
+    <div class="g3">
+      <div class="mode core">
+        <div class="wm">form<span class="p">.</span></div>
+        <div class="name">01 · core</div>
+        <p>Canonical default. White wordmark, blue period, dark ground. Product, UI, web, docs, operational surfaces. Calm, balanced, infrastructural.</p>
+      </div>
+      <div class="mode editorial">
+        <div class="wm">form<span class="p">.</span></div>
+        <div class="name">02 · editorial</div>
+        <p>Cinematic / creative. Lighter optical weight, more breathing room, set inside the Living Motion &amp; horizon atmosphere. Campaigns, covers, storytelling, brand films.</p>
+      </div>
+      <div class="mode authority">
+        <div class="wm">form<span class="p">.</span></div>
+        <div class="name">03 · authority</div>
+        <p>Institutional / declarative. Presence through scale, contrast &amp; composition — never capitals. Enterprise proposals, board decks, launch moments.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 DIVISION LOCKUPS -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">05</span><h2>department lockups</h2><span class="tag">horizontal · for nav, headers, UI</span></div>
+    <p class="lead">Lockups extend the identity with clarity and hierarchy. The wordmark never changes color; the department word carries its signal color, and any dot in that context takes the same department color — never blue. Never alter the wordmark. Horizontal lockup for navigation and interface; stacked for presentation and print.</p>
+    <div class="lockups" style="margin-top:26px">
+
+      <div class="lockup">
+        <div class="lockup__h"><div class="wm">form<span class="p" style="color:var(--strategy)">.</span></div><div class="div" style="color:var(--strategy)">strategy</div></div>
+        <div class="lockup__meta"><span class="k"><span class="dot" style="background:var(--strategy)"></span>&nbsp; signal green · living intelligence</span><span class="v">Designing clarity. Building direction.</span></div>
+      </div>
+
+      <div class="lockup">
+        <div class="lockup__h"><div class="wm">form<span class="p" style="color:var(--creative)">.</span></div><div class="div" style="color:var(--creative)">creative &amp; marketing</div></div>
+        <div class="lockup__meta"><span class="k"><span class="dot" style="background:var(--creative)"></span>&nbsp; gold</span><span class="v">Telling stories. Creating impact.</span></div>
+      </div>
+
+      <div class="lockup">
+        <div class="lockup__h"><div class="wm">form<span class="p" style="color:var(--digital)">.</span></div><div class="div" style="color:var(--digital)">digital</div></div>
+        <div class="lockup__meta"><span class="k"><span class="dot" style="background:var(--digital)"></span>&nbsp; infrastructure blue</span><span class="v">Engineering systems. Building experiences.</span></div>
+      </div>
+
+      <div class="lockup">
+        <div class="lockup__h"><div class="wm">form<span class="p" style="color:var(--ai)">.</span></div><div class="div" style="color:var(--ai)">ai</div></div>
+        <div class="lockup__meta"><span class="k"><span class="dot" style="background:var(--ai)"></span>&nbsp; violet</span><span class="v">Intelligence in motion. Advantage by design.</span></div>
+      </div>
+
+      <div class="lockup">
+        <div class="lockup__h"><div class="wm">form<span class="p" style="color:var(--support)">.</span></div><div class="div" style="color:var(--support)">support</div></div>
+        <div class="lockup__meta"><span class="k"><span class="dot" style="background:var(--support)"></span>&nbsp; muted gray</span><span class="v">Real people. Real support. Real impact.</span></div>
+      </div>
+
+      <div class="lockup">
+        <div class="lockup__h"><div class="wm">form<span class="p" style="color:var(--experience)">.</span></div><div class="div" style="color:var(--experience)">experience</div></div>
+        <div class="lockup__meta"><span class="k"><span class="dot" style="background:var(--experience)"></span>&nbsp; cosmic rose</span><span class="v">Moments that move. Memories that last.</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 06 COLOR SYSTEM -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">06</span><h2>color system</h2><span class="tag">blue is the spine · restraint is the rule</span></div>
+
+    <p class="lead">The master surface never changes: near-black canvas, soft-white type, infrastructure blue accent. Department colors are identity accents, quarantined by context — used only inside each department's own world. A page is never “the pink page” or “the green page.” Restraint is the beauty of the system.</p>
+
+    <h3 style="font-size:1.05rem;margin:30px 0 14px;font-weight:500">base palette</h3>
+    <div class="palette">
+      <div class="sw"><span class="chip" style="background:#05070B;border:1px solid var(--line)"></span><div class="meta"><div class="n">deep</div><div class="h">#05070B</div></div></div>
+      <div class="sw"><span class="chip" style="background:#0A0D12"></span><div class="meta"><div class="n">near black</div><div class="h">#0A0D12</div></div></div>
+      <div class="sw"><span class="chip" style="background:#141821"></span><div class="meta"><div class="n">panel</div><div class="h">#141821</div></div></div>
+      <div class="sw"><span class="chip" style="background:#F4F5F7"></span><div class="meta"><div class="n">soft white</div><div class="h">#F4F5F7</div></div></div>
+      <div class="sw"><span class="chip" style="background:#A7ADB7"></span><div class="meta"><div class="n">muted gray</div><div class="h">#A7ADB7</div></div></div>
+      <div class="sw"><span class="chip" style="background:#6F7682"></span><div class="meta"><div class="n">dim gray</div><div class="h">#6F7682</div></div></div>
+    </div>
+
+    <h3 style="font-size:1.05rem;margin:34px 0 14px;font-weight:500">master accent — infrastructure blue</h3>
+    <div class="palette">
+      <div class="sw"><span class="chip" style="background:#3D6BFF"></span><div class="meta"><div class="n">blue · primary</div><div class="h">#3D6BFF</div></div></div>
+      <div class="sw"><span class="chip" style="background:#5AB6FF"></span><div class="meta"><div class="n">blue · light</div><div class="h">#5AB6FF</div></div></div>
+      <div class="sw"><span class="chip" style="background:#7DA5FF"></span><div class="meta"><div class="n">blue · soft</div><div class="h">#7DA5FF</div></div></div>
+    </div>
+    <div class="g2" style="margin-top:14px">
+      <div class="sw"><span class="gradbar" style="background:var(--gradient-cta);border:none;height:70px;border-radius:0"></span><div class="meta"><div class="n">cta gradient · blue → violet</div><div class="h">#3D6BFF → #7A3DFF · buttons &amp; CTAs only</div></div></div>
+      <div class="sw"><span class="gradbar" style="background:linear-gradient(90deg,#2A1D0C,#E8A33D,#F4D390);border:none;height:70px;border-radius:0"></span><div class="meta"><div class="n">warm atmosphere · gold</div><div class="h">bronze → gold · light &amp; atmosphere only, never UI</div></div></div>
+    </div>
+    <p style="color:var(--muted);font-size:.9rem;margin-top:14px">Blue is the default accent everywhere: the wordmark period, CTAs, links, primary UI. Infrastructure is the most-built layer of the system, so blue is the spine.</p>
+
+    <h3 style="font-size:1.05rem;margin:34px 0 14px;font-weight:500">department signals</h3>
+    <div class="deptrow">
+      <div class="dept"><div class="bar" style="background:var(--strategy)"></div><div class="n">strategy</div><div class="h">signal green · #3DE87A</div><div class="role">living intelligence — neurodivergence, cognition, pattern disruption.</div></div>
+      <div class="dept"><div class="bar" style="background:var(--creative)"></div><div class="n">creative &amp; mktg</div><div class="h">gold · #E8A33D</div><div class="role">stories &amp; culture.</div></div>
+      <div class="dept"><div class="bar" style="background:var(--digital)"></div><div class="n">digital</div><div class="h">blue · #3D6BFF</div><div class="role">platforms &amp; experiences.</div></div>
+      <div class="dept"><div class="bar" style="background:var(--ai)"></div><div class="n">ai</div><div class="h">violet · #9B6BFF</div><div class="role">intelligence in motion.</div></div>
+      <div class="dept"><div class="bar" style="background:var(--support)"></div><div class="n">support</div><div class="h">gray · #A7ADB7</div><div class="role">people who keep you advancing.</div></div>
+      <div class="dept"><div class="bar" style="background:var(--experience)"></div><div class="n">experience</div><div class="h">rose · #E85C9B</div><div class="role">moments that move &amp; last.</div></div>
+    </div>
+
+    <div class="g2" style="margin-top:24px">
+      <div class="card">
+        <span class="code" style="color:var(--strategy)">the signal green rule</span>
+        <p>Signal green is the living-intelligence signal — refined from the old near-neon so it stays luxury on dark. Use it surgically only: the icon dot, active / AI states, and strategy accents. Never as fills, never on large surfaces. Restraint keeps it premium.</p>
+      </div>
+      <div class="card">
+        <span class="code" style="color:var(--gold)">the gold rule</span>
+        <p>Gold has exactly two jobs: the identity color of creative &amp; marketing, and warm atmospheric counter-light. Every composition has one counter-light — warm gold <b>or</b> cool gray-white, never both in the same frame. Blue coexists with either. Gold is light, never UI text or buttons.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 LIVING INTELLIGENCE SYSTEM -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">07</span><h2>living intelligence system</h2><span class="tag">motion · mesh · orbital · horizon</span></div>
+    <p class="lead">The signature visual world — the gold-and-blue particle, mesh, and orbital motion that reads like living cognition and deep space at once. This is where “intelligence becoming emotionally aware” is expressed. Gold as luminous energy against the dark, always paired with blue, never with the cool gray in the same frame.</p>
+    <div class="g3" style="margin-top:24px">
+      <div class="card"><span class="code">mesh</span><p>Connected intelligence relationships — communication, awareness, living operational topology. Elegant, restrained, mathematically graceful. Never chaotic node density.</p></div>
+      <div class="card"><span class="code">orbital</span><p>Synchronized convergence — alignment, coordination, gravitational calm. Mathematically intentional, emotionally magnetic. Never arcade-like.</p></div>
+      <div class="card"><span class="code" style="color:var(--gold)">horizon</span><p>The gold-lit cloudscape / edge-of-light treatment. Reserved for full-bleed brand moments — covers, launches, section breaks. A brand moment, never interface.</p></div>
+    </div>
+
+    <div class="illum" style="margin-top:16px">
+      <div class="top"><div class="wm">form<span class="p">.</span></div><div class="idx">002</div></div>
+      <div>
+        <h3>intelligence has a signal<span class="p">.</span></h3>
+        <p class="sub">the living motion system — gold and blue energy against the dark, the visual language of adaptive cognition.</p>
+      </div>
+      <div class="ticker"><span>[ living intelligence system ]</span><span>[ formintel.co ]</span></div>
+    </div>
+  </section>
+
+  <!-- 08 LIGHTING & ATMOSPHERE -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">08</span><h2>lighting &amp; atmosphere</h2><span class="tag">light is emotional infrastructure</span></div>
+    <p class="lead">Cool base with warm accents. Subtle, atmospheric, restrained — depth without noise. Light should feel physically integrated and lived-inside, never pasted on. Darkness is foundational: without it, light loses meaning.</p>
+    <div class="g2" style="margin-top:24px">
+      <div style="position:relative;height:160px;border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;background:var(--near-black)">
+        <div style="position:absolute;inset:0;background:radial-gradient(130% 90% at 85% 18%, rgba(232,163,61,.55), transparent 56%)"></div>
+        <span class="mono" style="position:absolute;left:18px;bottom:16px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)">warm counter-light · gold</span>
+      </div>
+      <div style="position:relative;height:160px;border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;background:var(--near-black)">
+        <div style="position:absolute;inset:0;background:radial-gradient(130% 90% at 85% 18%, rgba(244,245,247,.40), transparent 56%)"></div>
+        <span class="mono" style="position:absolute;left:18px;bottom:16px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft-white)">cool counter-light · gray-white</span>
+      </div>
+    </div>
+    <p style="color:var(--muted);font-size:.9rem;margin:12px 0 4px"><b style="color:var(--soft-white)">One counter-light per frame — warm gold <em>or</em> cool gray-white, never both.</b> When gold isn't present, the counter-light is this gray/white glow. Blue coexists with either.</p>
+    <div class="g4" style="margin-top:24px">
+      <div class="card"><span class="code">soft glow</span><p>Emotional light diffusion. Volumetric, restrained. Never radioactive.</p></div>
+      <div class="card"><span class="code" style="color:var(--gold)">warm light</span><p>The gold counter-light. Human warmth against the cool base.</p></div>
+      <div class="card"><span class="code">deep depth</span><p>Shadow architecture, indigo void, cinematic contrast.</p></div>
+      <div class="card"><span class="code">edge light</span><p>Softened diffusion, gradual falloff. Never sterile vector sharpness.</p></div>
+    </div>
+    <p style="color:var(--muted);font-size:.9rem;margin-top:16px">UI light should feel aerospace-grade, not gamer-tech. No neon, no glowing everything equally, no arcade HUD.</p>
+  </section>
+
+  <!-- 09 TYPOGRAPHY -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">09</span><h2>typography system</h2><span class="tag">restraint creates luxury</span></div>
+    <p class="lead">Three typefaces, strict roles. Hierarchy comes from spacing, scale, and rhythm — not weight. Lowercase is the default; uppercase belongs to metadata only.</p>
+
+    <div style="margin-top:24px">
+      <div class="typ">
+        <div class="side satoshi-face"><div class="aa">Aa</div><div class="nm">Satoshi</div><div class="rl">display &amp; headlines<br/>the wordmark<br/>weights 400–700</div></div>
+        <div class="b satoshi-face">
+          <div class="h">the systems behind movement<span class="p">.</span></div>
+          <div class="sub">where innovation becomes infrastructure.</div>
+          <div class="bd manrope-face" style="font-family:var(--satoshi)">Satoshi owns the wordmark, display type, and headlines — the big statements. Clean, modern, architecturally balanced.</div>
+        </div>
+      </div>
+
+      <div class="typ">
+        <div class="side manrope-face"><div class="aa">Aa</div><div class="nm">Manrope</div><div class="rl">body &amp; sub-headings<br/>lede · UI text<br/>weights 400–600</div></div>
+        <div class="b manrope-face">
+          <div class="h" style="font-family:var(--manrope);font-weight:700">operational intelligence, made legible<span class="p">.</span></div>
+          <div class="sub">clarity that aligns vision with operational reality.</div>
+          <div class="bd">Manrope carries body copy, sub-headings, lede lines, and interface text. It was drawn for reading — calm, highly legible, human. This paragraph is Manrope.</div>
+        </div>
+      </div>
+
+      <div class="typ">
+        <div class="side mono-face"><div class="aa">Aa</div><div class="nm">IBM Plex Mono</div><div class="rl">metadata · eyebrows<br/>section codes · labels<br/>timestamps</div></div>
+        <div class="b mono-face">
+          <div class="mono" style="font-size:1.1rem;letter-spacing:.02em">[ 01 ] &nbsp; operational systems</div>
+          <div class="mono" style="font-size:.8rem;letter-spacing:.16em;color:var(--muted);margin-top:14px;text-transform:uppercase">signal architecture · active system · sys_01 / 2026</div>
+          <div class="bd mono-face" style="font-family:var(--mono);font-size:.86rem">Plex Mono handles all system language — metadata, eyebrows, codes, labels, timestamps. Infrastructural, subtle, precise.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-top:24px">
+      <div class="card">
+        <span class="code">casing</span>
+        <p>Lowercase for headers, subheaders, navigation, section titles, ecosystem labels, product names, and footer categories. Uppercase only for metadata and micro-labels, with increased tracking. Lowercase softens arrogance and increases humanity.</p>
+      </div>
+      <div class="card">
+        <span class="code">weight &amp; color</span>
+        <p>Restrained weights — body 400–500, emphasis to 600, display 700 for Satoshi. Primary text is soft white, never pure white. Secondary is muted gray. Accent text uses the infrastructure blue; signal green only inside strategy.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:1.05rem;margin:34px 0 16px;font-weight:500">hierarchy</h3>
+    <div class="scale">
+      <div class="r"><span class="k">h1 · satoshi 700</span><span class="satoshi-face" style="font-size:2rem;letter-spacing:-.03em">the future needs form<span style="color:var(--blue)">.</span></span></div>
+      <div class="r"><span class="k">h2 · satoshi 700</span><span class="satoshi-face" style="font-size:1.5rem;letter-spacing:-.02em">ecosystem structure.</span></div>
+      <div class="r"><span class="k">h3 · manrope 600</span><span class="manrope-face" style="font-size:1.15rem;font-weight:600">form strategy</span></div>
+      <div class="r"><span class="k">body · manrope 400</span><span class="manrope-face" style="font-size:1rem;color:var(--muted)">explain complex things simply — calm, clear, human.</span></div>
+      <div class="r"><span class="k">meta · plex mono</span><span class="mono-face" style="font-size:.74rem;letter-spacing:.16em;color:var(--dim);text-transform:uppercase">operational departments · vision · products</span></div>
+    </div>
+  </section>
+
+  <!-- 10 ICONOGRAPHY -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">10</span><h2>iconography</h2><span class="tag">line-based · the blue dot</span></div>
+    <p class="lead">Icons are line-based, geometric, single consistent stroke, minimal, and always meaningful — never decorative. Each carries the signature blue dot as its active-signal accent. Per-department glyphs are being finalized; the system rules are locked.</p>
+    <div class="g4" style="margin-top:24px">
+      <div class="card"><span class="code">stroke</span><p>Single consistent weight. Geometric construction. No filled shapes, no gradients inside icons.</p></div>
+      <div class="card"><span class="code">the dot</span><p>The blue dot marks active intelligence — the icon's signal node. Restrained, precise, never oversized.</p></div>
+      <div class="card"><span class="code">scale</span><p>Small-to-medium. Icons support hierarchy; they never dominate a composition.</p></div>
+      <div class="card"><span class="code">meaning</span><p>Every icon earns its place. Never line-art clip art, never trend glyphs.</p></div>
+    </div>
+  </section>
+
+  <!-- 11 SURFACES / CARDS / BUTTONS -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">11</span><h2>surfaces, cards &amp; buttons</h2><span class="tag">cards are architecture, not decoration</span></div>
+    <div class="g2">
+      <div>
+        <p class="lead">Dark translucent surfaces, subtle borders, soft radius, spacious padding, clear hierarchy. Shadows are minimal — depth comes from borders, layering, and ambient contrast.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;align-items:center">
+          <a href="#" style="display:inline-flex;align-items:center;gap:10px;background:var(--gradient-cta);color:#fff;font-family:var(--manrope);font-weight:600;font-size:.92rem;padding:13px 22px;border-radius:999px;text-decoration:none">start a project <span aria-hidden="true">→</span></a>
+          <a href="#" style="display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid var(--line-2);color:var(--soft-white);font-family:var(--manrope);font-weight:600;font-size:.92rem;padding:12px 22px;border-radius:999px;text-decoration:none">explore continuum <span aria-hidden="true">→</span></a>
+          <a href="#" style="display:inline-flex;align-items:center;gap:8px;color:var(--blue);font-family:var(--manrope);font-weight:600;font-size:.9rem;text-decoration:none">learn more <span aria-hidden="true">→</span></a>
+        </div>
+        <p style="font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--dim);margin-top:16px;text-transform:uppercase">primary · secondary · tertiary link — clear · confident · effortless</p>
+      </div>
+      <div class="card">
+        <span class="code">card anatomy</span>
+        <h4>strategic systems</h4>
+        <p>Clarity, alignment, and operational architecture that move vision forward. Dark translucent background, subtle border, soft radius, spacious padding, clear hierarchy. Hover only when clickable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 LAYOUT -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">12</span><h2>layout principles</h2><span class="tag">spacious · modular · editorial</span></div>
+    <div class="chips">
+      <span class="chip">spacious</span><span class="chip">structured</span><span class="chip">modular</span>
+      <span class="chip">asymmetrical</span><span class="chip">strong negative space</span>
+      <span class="chip">editorial hierarchy</span><span class="chip">high clarity</span><span class="chip">low noise</span>
+    </div>
+    <p class="lead" style="margin-top:22px">Split-hero layouts, consistent modular grids, generous margins, strong type hierarchy, premium contrast. Content never feels crowded. Every page alternates density and openness to create cinematic rhythm — alive, but controlled. <b style="color:var(--soft-white)">Card headers and icons are centered;</b> section titles stay left-aligned and editorial; body copy may center for emotional or hero moments.</p>
+  </section>
+
+  <!-- 13 ECOSYSTEM ARCHITECTURE -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">13</span><h2>ecosystem architecture</h2><span class="tag">one company · departments · one division · continuum</span></div>
+
+    <h3 style="font-size:1.05rem;margin:6px 0 14px;font-weight:500">departments</h3>
+    <div class="g3">
+      <div class="card"><h4 style="display:flex;align-items:center;justify-content:center;gap:10px"><span class="dot" style="background:var(--strategy)"></span> form. strategy</h4><p>Operational consulting, systems architecture, organizational design, growth-track systems, execution frameworks.</p></div>
+      <div class="card"><h4 style="display:flex;align-items:center;justify-content:center;gap:10px"><span class="dot" style="background:var(--creative)"></span> form. creative &amp; marketing</h4><p>Creative direction, brand &amp; communications, content systems, campaigns, storytelling.</p></div>
+      <div class="card"><h4 style="display:flex;align-items:center;justify-content:center;gap:10px"><span class="dot" style="background:var(--digital)"></span> form. digital</h4><p>Websites, apps, platforms, automation, and digital infrastructure built to perform.</p></div>
+      <div class="card"><h4 style="display:flex;align-items:center;justify-content:center;gap:10px"><span class="dot" style="background:var(--ai)"></span> form. ai</h4><p>AI systems, agents, workflows, prompt architecture, and intelligent operational infrastructure.</p></div>
+      <div class="card"><h4 style="display:flex;align-items:center;justify-content:center;gap:10px"><span class="dot" style="background:var(--support)"></span> form. support</h4><p>Executive operations, administration, virtual assistance, and ongoing operational support.</p></div>
+      <div class="card"><h4 style="display:flex;align-items:center;justify-content:center;gap:10px"><span class="dot" style="background:var(--experience)"></span> form. experience</h4><p>Live production, playback &amp; worship infrastructure, AVL, and moments that move people.</p></div>
+    </div>
+
+    <h3 style="font-size:1.05rem;margin:34px 0 4px;font-weight:500">form. labs <span style="color:var(--dim);font-family:var(--mono);font-size:.68rem;letter-spacing:.1em">— the division · productized IP</span></h3>
+    <div class="shelf">
+      <div class="lbl">systems / r&amp;d — in development</div>
+      <div class="prod"><div class="l"><div class="nm">relay <span class="by">by form.</span></div><div class="ds">communication infrastructure — the system between thought and execution</div></div><span class="st soon">coming soon</span></div>
+      <div class="prod"><div class="l"><div class="nm">frame <span class="by">by form.</span></div><div class="ds">visual systems platform</div></div><span class="st soon">coming soon</span></div>
+      <div class="prod"><div class="l"><div class="nm">intellect <span class="by">by form.</span></div><div class="ds">learning management platform</div></div><span class="st soon">coming soon</span></div>
+      <div class="prod"><div class="l"><div class="nm">ledger <span class="by">by form.</span></div><div class="ds">operational record system</div></div><span class="st soon">coming soon</span></div>
+      <div class="prod"><div class="l"><div class="nm">formation<span style="color:var(--blue)">.</span></div><div class="ds">leadership development program</div></div><span class="st soon">coming soon</span></div>
+      <div class="lbl">products</div>
+      <div class="prod"><div class="l"><div class="nm">messages <span class="by">by form.</span></div><div class="ds">series systems &amp; launch assets for message-driven ministries</div></div><span class="st live">live</span></div>
+      <div class="prod"><div class="l"><div class="nm">by design</div><div class="ds">the book — currently being written</div></div><span class="st soon">coming soon</span></div>
+      <div class="prod"><div class="l"><div class="nm">bartending masters</div><div class="ds">training curriculum</div></div><span class="st soon">coming soon</span></div>
+    </div>
+
+    <h3 style="font-size:1.05rem;margin:34px 0 14px;font-weight:500">continuum <span style="color:var(--dim);font-family:var(--mono);font-size:.68rem;letter-spacing:.1em">— the partnership model</span></h3>
+    <p class="lead" style="margin-bottom:20px">form. isn't project-based. Continuum is our monthly partnership model: we come alongside you and your team — or become the team when there isn't one — and operate as an extension of your organization to get done whatever you need done. Retained, ongoing, and built to sustain movement over time.</p>
+    <div class="g4">
+      <div class="stage"><div class="n">01</div><h4>integrate</h4><p>We integrate as an extension of your team — inside your world, your goals, your standards.</p></div>
+      <div class="stage"><div class="n">02</div><h4>or the team</h4><p>No team yet? We become it — strategy, creative, digital, ai, support, experience.</p></div>
+      <div class="stage"><div class="n">03</div><h4>consistent</h4><p>A monthly partnership with priority access across the full ecosystem.</p></div>
+      <div class="stage"><div class="n">04</div><h4>sustained</h4><p>We execute what you need, month over month, so the movement lasts.</p></div>
+    </div>
+    <p style="color:var(--muted);font-size:.9rem;margin-top:16px;text-align:center">Built for leaders who need movement that lasts.</p>
+  </section>
+
+  <!-- 14 VOICE -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">14</span><h2>voice &amp; messaging</h2><span class="tag">statements that land</span></div>
+    <div class="g2">
+      <div>
+        <div class="mono" style="font-size:clamp(1rem,2.2vw,1.45rem);letter-spacing:.16em;line-height:1.6;color:var(--soft-white);text-transform:uppercase">vision needs structure.</div>
+        <div class="tag" style="margin-top:14px">the future needs form<span class="p">.</span></div>
+        <p class="lead" style="margin-top:22px">form. speaks with clarity, conviction, intelligence, restraint, and edge. Simple but not shallow, intelligent but not inaccessible, bold but not reckless. Never generic agency, never AI hype, never motivational fluff.</p>
+        <div class="voice-words">
+          <span class="chip">clear</span><span class="chip">confident</span><span class="chip">intelligent</span>
+          <span class="chip">human</span><span class="chip">strategic</span><span class="chip">precise</span><span class="chip">mature</span>
+        </div>
+      </div>
+      <div class="card">
+        <span class="code">signature lines</span>
+        <p style="color:var(--soft-white);line-height:2.1;text-align:left">the systems behind movement.<br/>where innovation becomes infrastructure.<br/>organizations don't fail because they lack ideas — they fail because their ideas lack form.<br/>form. builds the architecture behind execution.<br/>form. is intelligent enough to unsettle people a little.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 DO / DON'T -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">15</span><h2>do's &amp; don'ts</h2><span class="tag">never drift from the system</span></div>
+    <div class="dd">
+      <div class="col do">
+        <h4><span class="dot" style="background:var(--blue)"></span> do's</h4>
+        <ul>
+          <li>Use the dark cinematic foundation.</li>
+          <li>Keep blue as the master accent; department colors quarantined by context.</li>
+          <li>Use Satoshi (display), Manrope (body), IBM Plex Mono (metadata).</li>
+          <li>Keep lowercase brand behavior; the period always present.</li>
+          <li>Use signal green surgically inside strategy only.</li>
+          <li>Use one counter-light per frame — warm gold or cool gray, never both.</li>
+          <li>Use minimal, purposeful line icons with the blue dot.</li>
+          <li>Keep layouts spacious; communicate clarity and intelligence.</li>
+        </ul>
+      </div>
+      <div class="col dont">
+        <h4><span class="dot" style="background:#E5484D"></span> don'ts</h4>
+        <ul>
+          <li>Make blue — or any department color — the whole page.</li>
+          <li>Bring back near-neon green, or use green outside strategy.</li>
+          <li>Use Canela, Commuter Sans, uppercase FORM., or heavy weights.</li>
+          <li>Pair gold and gray counter-light in the same frame.</li>
+          <li>Use light corporate-brochure or generic SaaS-infographic styling.</li>
+          <li>Use cyberpunk clichés, cluttered dashboards, or loud effects.</li>
+          <li>Recreate the wordmark or distort the mark.</li>
+          <li>Drift from the current form. world.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 GOVERNANCE -->
+  <section class="blk">
+    <div class="blk__head"><span class="num">16</span><h2>governance</h2><span class="tag">master lock</span></div>
+    <div class="card" style="border-color:var(--line-2)">
+      <span class="code" style="color:var(--blue)">canonical authority</span>
+      <p style="color:var(--soft-white);font-size:1.05rem;line-height:1.7">From this point forward, this system is the only approved visual and verbal reference for form. All future outputs must align with this exact world. form. evolves intentionally, never reactively. form. builds the language others eventually follow.</p>
+      <div class="tag" style="margin-top:22px;font-size:1.4rem">preserve. extend. refine.<br/><span style="color:var(--blue)">never drift.</span></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="top">
+      <div style="max-width:30ch">
+        <div class="wm">form<span class="p">.</span></div>
+        <div class="tagline">vision needs structure.<br/>the future needs form.<br/>operational intelligence · est. 2020</div>
+      </div>
+      <div class="col">
+        <h5>ecosystem</h5>
+        <span>strategy</span><span>creative &amp; marketing</span><span>digital</span><span>ai</span><span>support</span><span>experience</span><span>form. labs · continuum</span>
+      </div>
+      <div class="col">
+        <h5>contact</h5>
+        <a href="mailto:hello@formintel.co">hello@formintel.co</a>
+        <a href="mailto:contact@formintel.co">contact@formintel.co</a>
+        <a href="mailto:continuum@formintel.co">continuum@formintel.co</a>
+        <a href="mailto:support@formintel.co">support@formintel.co</a>
+        <a href="mailto:dontae@formintel.co">dontae@formintel.co</a>
+      </div>
+      <div class="col">
+        <h5>partnership</h5>
+        <span>continuum</span><span>the partnership model</span><span>exists since 2026</span>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 form. all rights reserved.</span>
+      <span>brand system · volume 01 · status: locked</span>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
