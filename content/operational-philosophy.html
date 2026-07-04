@@ -61,6 +61,14 @@ main{position:relative;z-index:1;}
 .locked dd{color:var(--muted);font-size:.94rem;line-height:1.6;}
 .locked dd b{color:var(--soft-white);font-weight:600;}
 
+/* toc */
+.toc{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 24px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.04em;}
+.toc__inner{max-width:1200px;margin:0 auto;display:flex;gap:16px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
+.toc__inner::-webkit-scrollbar{display:none;}
+.toc__label{color:var(--dim);margin-right:8px;}
+.toc a{color:var(--fg);text-decoration:none;transition:color 0.2s;}
+.toc a:hover{color:var(--blue);}
+
 /* sections */
 section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
 .sec__ey{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;}
@@ -116,6 +124,47 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
     </div>
   </header>
 
+  <nav class="toc">
+    <div class="toc__inner">
+      <span class="toc__label">index</span>
+      <a href="#sec-00">§ 00</a>
+      <a href="#sec-01">§ 01</a>
+      <a href="#sec-02">§ 02</a>
+      <a href="#sec-03">§ 03</a>
+      <a href="#sec-04">§ 04</a>
+      <a href="#sec-05">§ 05</a>
+      <a href="#sec-06">§ 06</a>
+      <a href="#sec-07">§ 07</a>
+      <a href="#sec-08">§ 08</a>
+      <a href="#sec-09">§ 09</a>
+      <a href="#sec-10">§ 10</a>
+      <a href="#sec-11">§ 11</a>
+      <a href="#sec-12">§ 12</a>
+      <a href="#sec-13">§ 13</a>
+      <a href="#sec-14">§ 14</a>
+      <a href="#sec-15">§ 15</a>
+      <a href="#sec-16">§ 16</a>
+      <a href="#sec-17">§ 17</a>
+      <a href="#sec-18">§ 18</a>
+      <a href="#sec-19">§ 19</a>
+      <a href="#sec-20">§ 20</a>
+      <a href="#sec-21">§ 21</a>
+      <a href="#sec-22">§ 22</a>
+      <a href="#sec-23">§ 23</a>
+      <a href="#sec-24">§ 24</a>
+      <a href="#sec-25">§ 25</a>
+      <a href="#sec-26">§ 26</a>
+      <a href="#sec-27">§ 27</a>
+      <a href="#sec-28">§ 28</a>
+      <a href="#sec-29">§ 29</a>
+      <a href="#sec-30">§ 30</a>
+      <a href="#sec-31">§ 31</a>
+      <a href="#sec-32">§ 32</a>
+      <a href="#sec-33">§ 33</a>
+      <a href="#sec-34">§ 34</a>
+    </div>
+  </nav>
+
   <section class="cover">
     <span class="eyebrow">source-of-truth intelligence layer <b>//</b> how form. thinks</span>
     <h1>the architecture behind vision<span class="p">.</span></h1>
@@ -140,7 +189,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </div>
 
   <!-- PURPOSE -->
-  <section class="sec">
+  <section class="sec" id="sec-00">
     <div class="sec__ey">§ 00 &nbsp;/&nbsp; purpose of this document</div>
     <h2>the intelligence layer behind form.</h2>
     <p>This document exists to teach humans, AI systems, collaborators, contractors, designers, operators, and future team members how form. thinks. This is not a traditional brand guide, a service menu, or a marketing one-sheet. It is the source-of-truth intelligence layer behind form.</p>
@@ -150,7 +199,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 1 -->
-  <section class="sec">
+  <section class="sec" id="sec-01">
     <div class="sec__ey">§ 01 &nbsp;/&nbsp; the core definition of form.</div>
     <h2>an AI-augmented operational intelligence company</h2>
     <p>form. specializes in enterprise systems, ministry and business execution systems, strategy, systems architecture, process implementation, creative design and operations, marketing and communications, music production, playback programming, music direction, AVL infrastructure and leadership, executive operations, administration, operations support, organizational architecture, leadership development, growth and development, web and app development and management, AI integration, automated workflows, AI intelligence architecture, and agentic operational systems.</p>
@@ -160,7 +209,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 2 -->
-  <section class="sec">
+  <section class="sec" id="sec-02">
     <div class="sec__ey">§ 02 &nbsp;/&nbsp; the foundational belief</div>
     <h2>vision without structure becomes frustration</h2>
     <p>Many leaders do not suffer from a lack of ideas. Many organizations are not failing because they are unintelligent, uninspired, or untalented. They are failing because their vision is not operationalized. Their ideas have no architecture. Their people have no clarity. Their workflows are fragmented. Their communication is inconsistent. Their systems are reactive. Their processes depend too heavily on memory, personality, emergency effort, and individual heroics.</p>
@@ -170,7 +219,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 3 -->
-  <section class="sec">
+  <section class="sec" id="sec-03">
     <div class="sec__ey">§ 03 &nbsp;/&nbsp; the origin of form.</div>
     <h2>lived operational experience</h2>
     <p>form. was not created in theory. It emerged from years of building inside real organizations under real pressure: ministries, teams, creative environments, executive structures, recruiting systems, production systems, communications systems, staffing ecosystems, digital platforms, worship environments, growth pathways, and organizational infrastructures.</p>
@@ -180,7 +229,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 4 -->
-  <section class="sec">
+  <section class="sec" id="sec-04">
     <div class="sec__ey">§ 04 &nbsp;/&nbsp; who dontae is in relation to form.</div>
     <h2>an architect, not a generalist</h2>
     <p>Dontae is not separate from form.'s philosophy. form. is not merely a company he founded; it is a structured extension of how he processes the world. He thinks in systems before most people realize a system exists, connecting dots faster than linear conversation can follow. What may sound like jumping between ideas is often multi-threaded systems reasoning — seeing how people, processes, incentives, design, leadership, communication, technology, culture, and execution all interact at once.</p>
@@ -190,7 +239,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 5 -->
-  <section class="sec">
+  <section class="sec" id="sec-05">
     <div class="sec__ey">§ 05 &nbsp;/&nbsp; form. is not safe</div>
     <h2>signal disruption, not chaos</h2>
     <p>form. is intelligent enough to unsettle people a little bit. That unsettling quality is not chaos — it is signal disruption. It is what happens when a company does not immediately fit into the categories people already know. Truly differentiated things often feel strange before they feel inevitable.</p>
@@ -205,7 +254,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 6 -->
-  <section class="sec">
+  <section class="sec" id="sec-06">
     <div class="sec__ey">§ 06 &nbsp;/&nbsp; institutional intelligence + disruptive cognition</div>
     <h2>form. exists in the tension</h2>
     <p>Institutional intelligence gives form. credibility. It understands governance, leadership structures, executive operations, staffing, workflows, communications, risk, role clarity, implementation, and scalable infrastructure. It understands why organizations need order, repeatability, accountability, documentation, and process.</p>
@@ -214,7 +263,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 7 -->
-  <section class="sec">
+  <section class="sec" id="sec-07">
     <div class="sec__ey">§ 07 &nbsp;/&nbsp; operational futurism with cultural intelligence</div>
     <h2>everything operational is also cultural</h2>
     <p>Operational futurism means form. is concerned not only with what organizations need now, but with what they are becoming. It understands that AI, automation, distributed teams, creative systems, adaptive workflows, and human-machine collaboration are reshaping the future of work, ministry, leadership, and execution.</p>
@@ -224,7 +273,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 8 -->
-  <section class="sec">
+  <section class="sec" id="sec-08">
     <div class="sec__ey">§ 08 &nbsp;/&nbsp; movement-grade operational intelligence</div>
     <h2>working beneath the visible layer</h2>
     <p>form. is not content with incremental improvement. It is built for organizations, ministries, leaders, and ideas meant to move people. Movement-grade means the system must be strong enough to carry energy, growth, visibility, complexity, and scale. A small idea can survive with informal systems. A movement cannot.</p>
@@ -233,7 +282,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 9 -->
-  <section class="sec">
+  <section class="sec" id="sec-09">
     <div class="sec__ey">§ 09 &nbsp;/&nbsp; the meaning of "form"</div>
     <h2>turning potential into architecture</h2>
     <p>The name form. is not accidental. To form something is to give it shape — to bring structure to what was unstructured, and to make the conceptual, emotional, spiritual, strategic, or imaginative operational, visible, and executable.</p>
@@ -243,7 +292,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 10 — REWRITTEN: symbolic system / color -->
-  <section class="sec">
+  <section class="sec" id="sec-10">
     <div class="sec__ey">§ 10 &nbsp;/&nbsp; the symbolic system of form.</div>
     <h2>restraint holds the structure; signal marks the intelligence</h2>
     <p>form.'s visual identity is not merely aesthetic — it is symbolic. The base is black, near-black, stone, and soft-white. These represent the institutional-intelligence side of form.: structure, timelessness, executive weight, documentation, and permanence. The darker tones give form. authority and prevent it from feeling playful or lightweight. The light tones give it clarity and space — intelligence does not need to be visually noisy to be powerful.</p>
@@ -255,7 +304,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 11 -->
-  <section class="sec">
+  <section class="sec" id="sec-11">
     <div class="sec__ey">§ 11 &nbsp;/&nbsp; more than a service company</div>
     <h2>an operating system, a design movement, an intelligence layer</h2>
     <p>form. functions like an <strong>operating system</strong> because it creates structure for how work flows, how decisions are made, how communication moves, and how execution becomes repeatable. It functions like a <strong>design movement</strong> because it carries a distinct visual and philosophical point of view — a visual language for operational intelligence, cognitive difference, and organizational clarity.</p>
@@ -264,7 +313,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 12 -->
-  <section class="sec">
+  <section class="sec" id="sec-12">
     <div class="sec__ey">§ 12 &nbsp;/&nbsp; the cognitive foundation of form.</div>
     <h2>how form. processes reality</h2>
     <p><strong>Nonlinear thinking</strong> lets form. move across categories quickly and see relationships between things that appear unrelated. <strong>Pattern recognition</strong> lets it identify repeated breakdowns beneath surface-level symptoms — when a team misses deadlines, the issue may be unclear ownership, poor intake, weak prioritization, or undocumented process, not laziness.</p>
@@ -273,7 +322,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 13 -->
-  <section class="sec">
+  <section class="sec" id="sec-13">
     <div class="sec__ey">§ 13 &nbsp;/&nbsp; form.'s relationship to AI</div>
     <h2>AI-augmented, not AI-dependent</h2>
     <p>form. does not use AI as a gimmick or present it as magic. It does not believe AI replaces human intelligence, taste, leadership, discernment, or responsibility. form. believes AI dramatically increases the capability of high-quality human operators when it is integrated into clear systems. AI is not the identity of form. — AI is part of the engine.</p>
@@ -283,7 +332,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 14 -->
-  <section class="sec">
+  <section class="sec" id="sec-14">
     <div class="sec__ey">§ 14 &nbsp;/&nbsp; form. ai — intelligence systems</div>
     <h2>AI as an operational layer, not an isolated tool</h2>
     <p>form. ai helps organizations intelligently implement AI across their actual operations: AI workflow and business integration, AI ministry integration, agentic systems, operational automation, prompt architecture, implementation strategy, AI knowledge systems, intelligent task routing, and AI-supported execution models.</p>
@@ -292,7 +341,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 15 -->
-  <section class="sec">
+  <section class="sec" id="sec-15">
     <div class="sec__ey">§ 15 &nbsp;/&nbsp; the form. operating model</div>
     <h2>a distributed operational ecosystem</h2>
     <p>form. operates through a modular, AI-augmented team model. It does not carry unnecessary overhead to deliver high-level work; it scales through a combination of core leadership, trusted contractors, AI systems, repeatable workflows, templates, automation, project-based teams, and specialized partners.</p>
@@ -301,7 +350,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 16 — REWRITTEN: departments -->
-  <section class="sec">
+  <section class="sec" id="sec-16">
     <div class="sec__ey">§ 16 &nbsp;/&nbsp; form.'s architecture</div>
     <h2>one ecosystem — departments, a division, a partnership model</h2>
     <p>form.'s departments are not separate businesses. They are expressions of one operational intelligence ecosystem. Every capability form. offers lives inside one of six departments, inside the form. labs division, or inside the continuum partnership model.</p>
@@ -318,7 +367,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 17 -->
-  <section class="sec">
+  <section class="sec" id="sec-17">
     <div class="sec__ey">§ 17 &nbsp;/&nbsp; form.'s view of services</div>
     <h2>organized around capability, not categories</h2>
     <p>form. offers many services because organizations are integrated systems. The market often forces companies into narrow categories — creative agency, consulting firm, AI automation company, executive assistant service, production company. form. does not reject clarity, but it does reject false fragmentation.</p>
@@ -327,7 +376,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 18 -->
-  <section class="sec">
+  <section class="sec" id="sec-18">
     <div class="sec__ey">§ 18 &nbsp;/&nbsp; form.'s communication philosophy</div>
     <h2>statements that land</h2>
     <p>form. communicates with clarity, conviction, intelligence, restraint, and edge. It should never sound like a generic agency, a motivational brand with no operational substance, a corporate consultancy saying nothing memorable, or an AI hype machine. Its voice is precise, thoughtful, elevated, culturally aware, and slightly disruptive. It values language that is simple but not shallow, intelligent but not inaccessible, bold but not reckless, poetic but not vague, strategic but not sterile.</p>
@@ -341,7 +390,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 19 — REWRITTEN: design -->
-  <section class="sec">
+  <section class="sec" id="sec-19">
     <div class="sec__ey">§ 19 &nbsp;/&nbsp; form.'s design philosophy</div>
     <h2>an intelligence system, not an AI gimmick</h2>
     <p>form.'s design visually expresses operational intelligence, cognitive difference, disciplined disruption, and future-facing structure. It avoids generic AI aesthetics — no overused cyberpunk visuals, random glowing gradients, fake neural networks, cheap futuristic effects, or trend-chasing tech clichés. form. should feel more like an intelligence system than an AI gimmick.</p>
@@ -351,7 +400,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 20 -->
-  <section class="sec">
+  <section class="sec" id="sec-20">
     <div class="sec__ey">§ 20 &nbsp;/&nbsp; form.'s relationship to ministry</div>
     <h2>the sacred and the structural</h2>
     <p>form. has deep ministry capability but is not limited to ministry. It understands churches at a level many agencies do not — worship environments, growth track, assimilation, next-gen systems, small groups, volunteer pipelines, executive-pastor realities, church staffing, production environments, AVL, digital ministry, weekend experience, and the emotional, spiritual, and operational complexity of ministry. form. can serve churches because it understands both the sacred and the structural.</p>
@@ -359,21 +408,21 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 21 -->
-  <section class="sec">
+  <section class="sec" id="sec-21">
     <div class="sec__ey">§ 21 &nbsp;/&nbsp; form.'s relationship to business</div>
     <h2>execution systems</h2>
     <p>form. understands business through the lens of execution systems. Many businesses do not need more ideas; they need cleaner operations, sharper communication, better workflows, stronger systems, clearer positioning, faster execution, and smarter use of human and AI capability. form. supports businesses through executive operations, marketing and communications, digital infrastructure, creative output, AI workflows, internal systems, and client-facing materials. In business contexts, form. positions itself around capability, efficiency, intelligence, and scalability — helping organizations do more than look better; helping them operate better.</p>
   </section>
 
   <!-- 22 -->
-  <section class="sec">
+  <section class="sec" id="sec-22">
     <div class="sec__ey">§ 22 &nbsp;/&nbsp; form.'s view of teams</div>
     <h2>form. values operators</h2>
     <p>form. builds teams around capability, adaptability, intelligence, and alignment — not merely job titles. The future of work rewards high-capacity learners who can use AI, think systemically, communicate clearly, and adapt quickly. An operator is someone who can take direction, understand intent, manage complexity, use tools, coordinate work, and move things forward. Operators are the backbone of form.'s modular model. form. can work with contractors, specialists, designers, editors, developers, and creative partners — but every person must understand the system they are contributing to. form. is not a place for disconnected execution; every contributor should know what the work is serving.</p>
   </section>
 
   <!-- 23 -->
-  <section class="sec">
+  <section class="sec" id="sec-23">
     <div class="sec__ey">§ 23 &nbsp;/&nbsp; form.'s view of leadership</div>
     <h2>leadership is architecture</h2>
     <p>Leadership is not only influence — it is architecture. A leader's job is not merely to inspire people; it is to create the conditions where people can understand, contribute, grow, execute, and sustain momentum. Many leaders carry vision but lack translation systems. They depend on meetings, urgency, personality, and repeated explanation to move work forward — which creates exhaustion and inconsistency.</p>
@@ -381,7 +430,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 24 -->
-  <section class="sec">
+  <section class="sec" id="sec-24">
     <div class="sec__ey">§ 24 &nbsp;/&nbsp; form.'s view of execution</div>
     <h2>execution is a system, not a work-ethic problem</h2>
     <p>Execution is the result of clarity, ownership, process, tools, communication, standards, timing, feedback, and accountability working together. Poor execution is rarely just a work-ethic problem; more often it is a system problem. People fail to execute when they do not know what matters, who owns what, what the standard is, where information lives, what the timeline is, or how their role connects to the larger goal.</p>
@@ -389,28 +438,28 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 25 -->
-  <section class="sec">
+  <section class="sec" id="sec-25">
     <div class="sec__ey">§ 25 &nbsp;/&nbsp; form.'s view of creativity</div>
     <h2>creativity needs structure</h2>
     <p>form. believes creativity is not separate from operations. Creative work becomes more powerful when supported by systems; without them, output becomes inconsistent, exhausting, reactive, and dependent on individual bursts of inspiration. form. respects taste, beauty, and emotional resonance — but believes creative work can be structured without being suffocated. A strong creative operation includes clear brand standards, repeatable templates, inspiration systems, production workflows, review processes, content calendars, asset libraries, AI-assisted ideation, quality control, and strategic alignment. Creativity should be connected to message, culture, audience, timing, and organizational purpose.</p>
   </section>
 
   <!-- 26 -->
-  <section class="sec">
+  <section class="sec" id="sec-26">
     <div class="sec__ey">§ 26 &nbsp;/&nbsp; marketing &amp; communications</div>
     <h2>marketing is translation, not manipulation</h2>
     <p>form. believes marketing is not manipulation — it is translation: helping the right people understand the right message at the right time in the right form. Marketing is perception architecture. Communications are alignment systems. Internal communication aligns people inside the organization; external communication shapes how the outside world understands it; social media creates rhythm and cultural presence; copywriting turns ideas into language that moves people; campaigns create focused momentum; brand messaging creates memory. A brilliant system that cannot be communicated clearly will fail to gain adoption. form. builds the language and channels required for ideas to travel.</p>
   </section>
 
   <!-- 27 -->
-  <section class="sec">
+  <section class="sec" id="sec-27">
     <div class="sec__ey">§ 27 &nbsp;/&nbsp; digital infrastructure</div>
     <h2>reduce friction, increase clarity</h2>
     <p>form. believes digital infrastructure should reduce friction and increase clarity. Websites, apps, forms, automations, databases, dashboards, and digital workflows are not merely technical assets — they are operational interfaces. A website is often the first place a person encounters an organization; it should communicate identity, answer questions, direct action, collect information, support workflows, and create trust. An app should exist because it solves a repeatable problem or creates a better experience, not because apps are impressive. Automation should remove friction, reduce error, speed execution, and preserve human attention for higher-value work. This is the work of form. digital.</p>
   </section>
 
   <!-- 28 -->
-  <section class="sec">
+  <section class="sec" id="sec-28">
     <div class="sec__ey">§ 28 &nbsp;/&nbsp; production, music &amp; experience</div>
     <h2>experience systems</h2>
     <p>form. understands that production environments are not merely technical spaces — they are experience systems. Sound, lighting, visuals, playback, music direction, stage flow, transitions, cues, and team communication all shape how people experience a moment. In ministry contexts this matters deeply: worship and production environments carry spiritual, emotional, technical, and cultural weight, and excellence is not performance for its own sake — it is about removing distraction, supporting participation, and stewarding the environment well.</p>
@@ -418,14 +467,14 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 29 -->
-  <section class="sec">
+  <section class="sec" id="sec-29">
     <div class="sec__ey">§ 29 &nbsp;/&nbsp; growth &amp; assimilation</div>
     <h2>growth without pathways creates leakage</h2>
     <p>form. believes growth must be structured. Attracting people is not enough; organizations must know how to receive, guide, develop, and integrate them. In churches this includes growth track, assimilation, next steps, serving pathways, volunteer development, small groups, and leadership pipelines. In businesses the same principle applies through onboarding, client journeys, customer success, employee development, and community engagement. People may show up but not connect, express interest but not commit, serve but not develop. form. — through form. strategy — builds the systems that help people move from first contact to meaningful engagement.</p>
   </section>
 
   <!-- 30 -->
-  <section class="sec">
+  <section class="sec" id="sec-30">
     <div class="sec__ey">§ 30 &nbsp;/&nbsp; form.'s ethical responsibility</div>
     <h2>intelligence should serve people, not consume them</h2>
     <p>Because form. works with systems, AI, communication, leadership, and organizational influence, it carries ethical responsibility. form. should not use intelligence to manipulate, use AI to deceive, or build systems that exploit people, obscure truth, or increase control at the expense of human dignity. It should build systems that create clarity, capacity, sustainability, and healthier execution.</p>
@@ -433,7 +482,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 31 -->
-  <section class="sec">
+  <section class="sec" id="sec-31">
     <div class="sec__ey">§ 31 &nbsp;/&nbsp; form.'s internal standard</div>
     <h2>form. must practice what it builds</h2>
     <p>form. cannot claim to build systems while operating in chaos, claim to increase capacity while burning out its own people, or claim to value intelligence while producing careless work. It must prioritize documentation, clean workflows, AI alignment, quality control, contractor onboarding, file organization, client-communication standards, proposal systems, project management, financial clarity, repeatable templates, and strategic restraint.</p>
@@ -441,7 +490,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 32 — REWRITTEN: AI usage -->
-  <section class="sec">
+  <section class="sec" id="sec-32">
     <div class="sec__ey">§ 32 &nbsp;/&nbsp; how AI systems should use this document</div>
     <h2>preserve these truths</h2>
     <p>Any AI system working with form. should treat this document as foundational context. When generating copy, strategy, visuals, proposals, workflows, service descriptions, website content, or client-facing language, preserve the following:</p>
@@ -460,7 +509,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 33 -->
-  <section class="sec">
+  <section class="sec" id="sec-33">
     <div class="sec__ey">§ 33 &nbsp;/&nbsp; short internal doctrine statements</div>
     <h2>doctrine compressed into language</h2>
     <div class="doctrine">
@@ -475,7 +524,7 @@ section.sec{padding:52px 0;border-bottom:1px solid var(--line);}
   </section>
 
   <!-- 34 -->
-  <section class="sec" style="border-bottom:none;">
+  <section class="sec" id="sec-34" style="border-bottom:none;">
     <div class="sec__ey">§ 34 &nbsp;/&nbsp; final summary</div>
     <h2>built for the future organizations are becoming</h2>
     <p>form. exists because the future of organizations will not be built by disconnected services, outdated workflows, isolated departments, or overextended individuals carrying invisible complexity. The future belongs to those who can integrate intelligence, creativity, operations, AI, leadership, communication, and execution into coherent systems.</p>
