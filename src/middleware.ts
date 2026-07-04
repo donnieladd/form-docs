@@ -19,11 +19,19 @@ function harden(res: NextResponse): NextResponse {
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  const token = req.cookies.get(SESSION_COOKIE)?.value;
+  const user = await verifySession(token);
+
+  // If already logged in and trying to access /login, redirect to /library
+  if (pathname === "/login" && user) {
+    const url = req.nextUrl.clone();
+    url.pathname = "/library";
+    url.searchParams.delete("next");
+    return harden(NextResponse.redirect(url));
+  }
 
   if (isPublic(pathname)) return harden(NextResponse.next());
 
-  const token = req.cookies.get(SESSION_COOKIE)?.value;
-  const user = await verifySession(token);
   if (user) return harden(NextResponse.next());
 
   // API calls get 401; page requests get redirected to /login.
