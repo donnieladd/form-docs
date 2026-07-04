@@ -4,12 +4,19 @@ import { SESSION_COOKIE, SESSION_TTL_SECONDS, verifyCredentials, createSession }
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-// tiny in-memory rate limit (per warm instance)
+// tiny in-memory rate limit (per warm instance) with LRU-like eviction
 const hits = new Map<string, { n: number; t: number }>();
+const MAX_HITS_ENTRIES = 1000;
+
 function limited(ip: string): boolean {
   const now = Date.now();
   const rec = hits.get(ip);
   if (!rec || now - rec.t > 60_000) {
+    // Basic eviction to prevent memory leak
+    if (hits.size >= MAX_HITS_ENTRIES) {
+      const firstKey = hits.keys().next().value;
+      if (firstKey) hits.delete(firstKey);
+    }
     hits.set(ip, { n: 1, t: now });
     return false;
   }
@@ -18,7 +25,8 @@ function limited(ip: string): boolean {
 }
 
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+  // Use req.ip if available (Vercel provides this), fallback to x-forwarded-for, then unknown
+  const ip = req.ip || req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
   if (limited(ip)) return NextResponse.json({ error: "Too many attempts. Wait a minute." }, { status: 429 });
 
   let body: { user?: string; pass?: string };

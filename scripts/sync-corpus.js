@@ -28,7 +28,7 @@ for (const file of files) {
       .replace(/\s+/g, ' ')
       .trim();
     
-    corpusContent += `\n--- ${file.toUpperCase()} ---\n\n${textContent}\n`;
+    corpusContent += `\n--- ${file.toUpperCase()} ---\n\n${JSON.stringify(textContent)}\n`;
   }
 }
 

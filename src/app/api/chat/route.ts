@@ -7,6 +7,25 @@ import { buildSystemPrompt } from "@/lib/spine";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+// Rate limit for chat (per warm instance) with LRU-like eviction
+const chatHits = new Map<string, { n: number; t: number }>();
+const MAX_CHAT_ENTRIES = 1000;
+
+function chatLimited(user: string): boolean {
+  const now = Date.now();
+  const rec = chatHits.get(user);
+  if (!rec || now - rec.t > 60_000) {
+    if (chatHits.size >= MAX_CHAT_ENTRIES) {
+      const firstKey = chatHits.keys().next().value;
+      if (firstKey) chatHits.delete(firstKey);
+    }
+    chatHits.set(user, { n: 1, t: now });
+    return false;
+  }
+  rec.n++;
+  return rec.n > 20; // 20 messages per minute per user
+}
+
 type Msg = { role: "user" | "assistant"; content: string };
 
 export async function POST(req: NextRequest) {
@@ -14,6 +33,11 @@ export async function POST(req: NextRequest) {
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
   const who = await verifySession(token);
   if (!who) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+
+  // Rate limit chat by user
+  if (chatLimited(who)) {
+    return NextResponse.json({ error: "Too many messages. Please wait a minute." }, { status: 429 });
+  }
 
   let body: { model?: string; messages?: Msg[]; context?: string };
   try {

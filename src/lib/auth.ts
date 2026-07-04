@@ -37,7 +37,10 @@ function b64urlToBytes(str: string): Uint8Array {
 }
 
 async function hmacKey(): Promise<CryptoKey> {
-  const secret = process.env.AUTH_SECRET || "";
+  const secret = process.env.AUTH_SECRET;
+  if (!secret) {
+    throw new Error("AUTH_SECRET is required. Sessions cannot be securely signed without it.");
+  }
   return crypto.subtle.importKey("raw", enc.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, [
     "sign",
     "verify",
