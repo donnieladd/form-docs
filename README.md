@@ -4,7 +4,7 @@ The private operating system of form. — a branded landing, a members-only libr
 signed-off form. documents, and **form. ai**: an assistant that reasons from form's own doctrine,
 with a model picker (Claude · Grok · OpenAI), file upload, and voice.
 
-Next.js 15 (App Router) · TypeScript · deploy on Vercel. No database required for v1 — form's
+Next.js 16 (App Router) · TypeScript · deploy on Vercel. No database required for v1 — form's
 entire corpus is small enough to load into every model call, so answers stay grounded.
 
 ## Routes

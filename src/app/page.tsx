@@ -90,7 +90,7 @@ export default function Landing() {
                 <h5>access</h5>
                 <span>private · internal-only</span>
                 <span>password protected</span>
-                <span>access is logged</span>
+                <span>unauthorized access prohibited</span>
               </div>
             </div>
             <div className="bottom">

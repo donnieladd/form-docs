@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "npm run sync-corpus && next build",
+    "start": "next start",
+    "sync-corpus": "node scripts/sync-corpus.js"
   },
   "dependencies": {
     "next": "^16.2.10",

@@ -279,7 +279,7 @@ export default function Chat({ models }: { models: Model[] }) {
         {error && <div className="composer-note warn">{error}</div>}
         {!error && (
           <div className="composer-note">
-            form. ai reasons from form&apos;s doctrine · answers can be imperfect · access is logged
+            form. ai reasons from form&apos;s doctrine · answers can be imperfect · unauthorized access prohibited
           </div>
         )}
       </div>

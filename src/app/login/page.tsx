@@ -97,7 +97,7 @@ function Login() {
               {busy ? "verifying…" : "enter →"}
             </button>
           </form>
-          <div className="gate__foot">private · internal-only · access is logged</div>
+          <div className="gate__foot">private · internal-only · unauthorized access prohibited</div>
         </div>
       </div>
     </>
