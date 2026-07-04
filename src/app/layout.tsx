@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
+import { Manrope, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+
+const manrope = Manrope({ subsets: ["latin"], display: "swap", variable: "--font-manrope" });
+const plexMono = IBM_Plex_Mono({ weight: ["400", "500"], subsets: ["latin"], display: "swap", variable: "--font-plex-mono" });
 
 export const metadata: Metadata = {
   title: "form. intel",
@@ -9,17 +13,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${manrope.variable} ${plexMono.variable}`}>
       <head>
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
       </head>

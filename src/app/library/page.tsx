@@ -61,7 +61,7 @@ export default function Library() {
                 <h3>{d.title}</h3>
                 <p>{d.desc}</p>
                 <span className="open">open record →</span>
-                <a className="cover" href={d.href} aria-label={`Open ${d.title}`} />
+                <Link className="cover" href={d.href} aria-label={`Open ${d.title}`} />
               </article>
             ))}
             <article className="doc-card ai-card">
@@ -76,7 +76,7 @@ export default function Library() {
               <span className="open" style={{ color: "var(--gold)" }}>
                 open form. ai →
               </span>
-              <a className="cover" href="/ai" aria-label="Open form. ai" />
+              <Link className="cover" href="/ai" aria-label="Open form. ai" />
             </article>
           </div>
         </main>

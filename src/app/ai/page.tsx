@@ -1,7 +1,7 @@
 import { availableModels } from "@/lib/models";
 import Chat from "./chat";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600; // revalidate every hour
 
 export default function AiPage() {
   const models = availableModels();

@@ -9,6 +9,7 @@
     "sync-corpus": "node scripts/sync-corpus.js"
   },
   "dependencies": {
+    "@next/font": "^14.2.15",
     "next": "^16.2.10",
     "postcss": "^8.5.16",
     "react": "19.0.0",
