@@ -15,8 +15,7 @@ How you operate:
 - If you are genuinely unsure or the documents are silent, say so rather than inventing specifics.`;
 
 export function buildSystemPrompt(extraContext?: string): string {
-  const docs = CORPUS.map((d) => `### ${d.name}\n${d.text}`).join("\n\n");
-  let out = `${IDENTITY}\n\n===== form. doctrine (source of truth) =====\n\n${docs}\n\n===== end doctrine =====`;
+  let out = `${IDENTITY}\n\n===== form. doctrine (source of truth) =====\n\n${CORPUS}\n\n===== end doctrine =====`;
   if (extraContext && extraContext.trim()) {
     out += `\n\n===== attached by the user for this conversation =====\n${extraContext.trim()}\n===== end attachment =====`;
   }
