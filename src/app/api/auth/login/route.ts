@@ -25,8 +25,8 @@ function limited(ip: string): boolean {
 }
 
 export async function POST(req: NextRequest) {
-  // Use req.ip if available (Vercel provides this), fallback to x-forwarded-for, then unknown
-  const ip = req.ip || req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+  // Use x-forwarded-for (Vercel provides this), fallback to unknown
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
   if (limited(ip)) return NextResponse.json({ error: "Too many attempts. Wait a minute." }, { status: 429 });
 
   let body: { user?: string; pass?: string };
